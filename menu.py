@@ -29,8 +29,8 @@ def hide_all_frames():
     f_index.pack_forget()
 
     w.f_add.place_forget()
-    w.f_make_eligible.place_forget()
-    w.f_make_DNQ.place_forget()
+    w.f_status_change.place_forget()
+    #w.f_make_DNQ.place_forget()
     w.f_record_change.place_forget()
 
     w.f_follow_up.place_forget()
@@ -51,15 +51,10 @@ def click_add():
     w.f_add.place(relwidth=r_width, relheight=r_height, rely=r_y)
     add.add()
 
-def click_make_eligible():
+def click_status_change(reqType, bg_color):
     hide_all_frames()
-    w.f_make_eligible.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    status.make_eligible()
-
-def click_make_DNQ():
-    hide_all_frames()
-    w.f_make_DNQ.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    status.make_DNQ()
+    w.f_status_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    status.status_change(reqType, bg_color)
 
 def click_record_change():
     hide_all_frames()
@@ -82,10 +77,13 @@ type_menu.add_command(label="Add Student", # green
 type_menu.add_separator()
 
 type_menu.add_command(label="Status: Make Eligible", # blue
-                      command=click_make_eligible)
+                      command=lambda:click_status_change("Status: Make Eligible", w.blue))
 
 type_menu.add_command(label="Status: Make DNQ", # red
-                      command=click_make_DNQ)
+                      command=lambda:click_status_change("Status: Make DNQ", w.red))
+
+type_menu.add_command(label="Status: AP Declined", # red
+                      command=lambda:click_status_change("Status: Assessment Plan Declined", w.red))
 
 type_menu.add_separator()
 

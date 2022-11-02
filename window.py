@@ -17,10 +17,10 @@ clearRequest_label_text = "Close this request builder"
 REQUESTS MENU
 """
 blue = "#c9daf8"
-f_make_eligible = Frame(root, bg=blue)
+f_status_change = Frame(root)
 
 red = "#f4cccc"
-f_make_DNQ = Frame(root, bg=red)
+#f_make_DNQ = Frame(root)
 
 purple = "#d9d2e9"
 f_record_change = Frame(root, bg=purple)
