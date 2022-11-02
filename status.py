@@ -55,7 +55,7 @@ def make_eligible():
         "Parent Consent Date: ",
         "Meeting Type: ",
         "Plan Type: ",
-        "Date parent signed \"I agree\": ",
+        "Parent signed \"I agree\" on ",
         "Status changed from Pending to Eligible."
     ]
 
