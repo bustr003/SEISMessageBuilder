@@ -54,13 +54,12 @@ def add():
         "\nPowerSchool Record: ",
         "SEIS record: ",
         "SSID: ",
-        "District Student ID: ",
         "EUSD Start Date: ",
         "Grade: ",
         "Middle Name: ",
         "School of Residence: ",
         "School of Attendance: ",
-        "Case Manager: "
+        "\nRe-activated the SEIS record.\nDirected the requester to update fields 26, 27, 28, 29, 14.20, 14.27.\nDirected the requester to NOT change Field 14.27 if it is already Populated."
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX

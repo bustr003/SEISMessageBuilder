@@ -51,11 +51,11 @@ def make_eligible():
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
-        "\nSpEd Type: ",
+        "\nSpEd Type: - to be added",
         "Parent Consent Date: ",
         "Meeting Type: ",
         "Plan Type: ",
-        "Parent signed \"I agree\" on ",
+        "Date parent signed \"I agree\": ",
         "Status changed from Pending to Eligible."
     ]
 
