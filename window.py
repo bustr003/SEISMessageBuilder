@@ -16,16 +16,16 @@ clearRequest_label_text = "Close this request builder"
 """
 REQUESTS MENU
 """
-blue = "#c9daf8"
-f_status_change = Frame(root)
-
 red = "#f4cccc"
-#f_make_DNQ = Frame(root)
-
-purple = "#d9d2e9"
-f_record_change = Frame(root, bg=purple)
-
 orange = "#fce5cd"
+yellow = "#fff2cc"
+green = "#d9ead3"
+blue = "#c9daf8"
+purple = "#d9d2e9"
+
+f_status_change = Frame(root)
+f_record_change = Frame(root, bg=blue)
+f_status_exit = Frame(root)
 f_add = Frame(root, bg=orange)
 
 # STAFF ROLE DROPDOWN OPTIONS

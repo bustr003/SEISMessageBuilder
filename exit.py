@@ -1,18 +1,14 @@
 import window as w
 
 """
-Change a student's IEP Team
-Options
-- add provider
-- change case manager
-- remove provider/cm
-- other
+Exit a student
 """
-def record_change(reqType, bg_color):
-    w.f_status_change["bg"] = bg_color
+def status_exit(reqType, bg_color):
+    # CREATE THE TITLE
+    w.f_status_exit["bg"] = bg_color
 
     # CREATE THE FRAMES
-    request_frame = w.f_record_change # !! FRAME
+    request_frame = w.f_status_exit # !! FRAME
     close_frame = w.Frame(request_frame)
     input_frame = w.Frame(request_frame)
     note_frame = w.Frame(request_frame)
@@ -51,11 +47,12 @@ def record_change(reqType, bg_color):
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
-    actions = [
-        "Request completed.",
-        "\n"
-    ]
-
+    if reqType == "Exit 70":
+        actions = [
+            "Request completed.",
+            "\nParent signed \"no longer eligible\" on "
+        ]
+    
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
     w.make_write_button(write_button, field_list, actions,
@@ -64,4 +61,4 @@ def record_change(reqType, bg_color):
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
     w.make_clearFrames_button(clearFrames_button, frame_list, bg_color)
-# END OF FN: record_change
+# END OF FN: status_exit

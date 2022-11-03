@@ -59,7 +59,12 @@ def add():
         "Middle Name: ",
         "School of Residence: ",
         "School of Attendance: ",
-        "\nRe-activated the SEIS record.\nDirected the requester to update fields 26, 27, 28, 29, 14.20, 14.27.\nDirected the requester to NOT change Field 14.27 if it is already Populated."
+
+        # For students who were previously Exited (Inactive)
+        "\nChanged Plan Type to 300 - Pending Initial Evaluation",
+        "Re-activated the SEIS record.",
+        "Directed the requester to update fields 26, 27, 28, 29, 14.20, 14.27.",
+        "Directed the requester to NOT change Field 14.27 if it is already Populated."
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX

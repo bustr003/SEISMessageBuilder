@@ -7,7 +7,6 @@ def status_change(reqType, bg_color):
     #bg_color = w.blue # !! BG COLOR
 
     # CREATE THE TITLE
-    #reqType = "Status: Make Eligible" # !! REQUEST CHANGE
     w.f_status_change["bg"] = bg_color
 
     # CREATE THE FRAMES
@@ -54,29 +53,39 @@ def status_change(reqType, bg_color):
         actions = [
             "Request completed.",
             "\nSpEd Type: - to be added",
-            "Parent Consent Date: ",
+            "% OUT of regular class: ",
+            "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
-            "Date parent signed \"I agree\": ",
+            "Parent signed \"I agree\" on ",
             "Status changed from Pending to Eligible."
         ]
     elif reqType == "Status: Make DNQ":
         actions = [
-        "Request completed.\n",
-        "Parent Consent Date: ",
-        "Plan Type: ",
-        "Date parent signed \"not eligible\": ",
-        "Status changed from Pending to Ineligible."
+            "Request completed.\n",
+            "Parent Consent Date: ",
+            "Plan Type: ",
+            "Parent signed \"not eligible\" on ",
+            "Status changed from Pending to Ineligible."
         ]
     elif reqType == "Status: Assessment Plan Declined":
         actions = [
-        "Request completed.\n",
-        "CALPADS \"Pending\" Transaction: ",
-        "Parent Consent Date: (removed)",
-        "Removed Date District Received Parent Consent.",
-        "Parent signed \"I do not agree with the proposed assessment\" on ",
-        "Do Not Report: ",
-        "Status changed from Pending to Not Providing Services."
+            "Request completed.\n",
+            "Parent signed \"I do not agree with the proposed assessment\" on ",
+            "CALPADS \"Pending\" Transaction: ",
+            "Parent consent date for initial eval: - removed",
+            "Meeting Type: 30 - removed -",
+            "Plan Type: 300 - removed -",
+            "Do Not Report: ",
+            "Status changed from Pending to Not Providing Services."
+        ]
+    elif reqType == "Status: Eligible but NotProvSvcs":
+        actions = [
+            "Request completed.\n",
+            "Parent signed \"I decline the offer\" on ",
+            "Parent consent date for initial eval: ",
+            "Plan Type: 800 -",
+            "Status changed from Pending to Not Providing Services."
         ]
     
 
