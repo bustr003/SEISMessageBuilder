@@ -92,7 +92,8 @@ Functions for
 """
 
 # STAFF ROLE DROPDOWN OPTIONS
-staff_roles = ["...",
+staff_roles = [
+    "...",
     "Site",
     "Psych",
     "Special Ed. Teacher",
@@ -102,7 +103,7 @@ staff_roles = ["...",
     "Behavior Intervention Specialist",
     "Physical Education Teacher",
     "General Education Teacher"
-    ]
+]
 
 """
 FN PURPOSE: Get user input about the request.

@@ -67,10 +67,10 @@ def record_change(req_type, bg_color):
     ]
 
     record_change_type = w.StringVar()
-    record_change_types = w.OptionMenu(input_frame, record_change_type, *record_change_types)
-    record_change_type.set("Other")#record_change_types[0])
-    record_change_types.grid(row=8, column=0)
-
+    record_change_dropdown = w.OptionMenu(input_frame, record_change_type, *record_change_types)
+    record_change_dropdown.grid(row=8, column=0)
+    record_change_type.set(record_change_types[0])
+    
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
