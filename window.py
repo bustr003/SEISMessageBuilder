@@ -221,52 +221,6 @@ def make_clearFrames_button(clearRequest_button, frame_list, bg_color):
 FN PURPOSE: Write a note that describes the request,
 the actions taken to complete the request,
 and any other comments or concerns.
-- For record changes
-"""
-def write_note_record_change(field_list, actions, note_frame, bg_color, change_requested):
-    note_frame.pack()
-
-    header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
-    l = Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
-    l.grid(row=0, column=0, columnspan=2)
-
-    clearFields_button = Button(note_frame, text="Clear Fields")
-    clearFields_button["command"] = lambda: clear_fields(field_list)
-    clearFields_button.grid(row=1, column=0, columnspan=2)
-
-    textbox = Text(note_frame, wrap="word")
-    textbox.config(width=textbox_width, height=textbox_height)
-    textbox.grid(row=2, column=0, columnspan=2)
-
-    line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + change_requested.get() + "\n"
-    textbox.insert("end", line)
-
-    line = "\"" + field_list[4].get().strip() + "\"\n\n"
-    textbox.insert("end", line)
-
-    for i in range(0, len(actions)):
-        textbox.insert("end", actions[i])
-        if (i < len(actions)-1):
-            textbox.insert("end", "\n")
-# END OF FN write_note_record_change
-
-"""
-FN PURPOSE: Make a button.
-When pressed, put a Note template in an editable textbox.
-- For record changes
-"""
-def make_write_button_record_change(write_button, field_list, actions,
-    frame_list, bg_color, change_requested):
-    write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note_record_change(field_list, actions,
-    frame_list[2], bg_color, change_requested)
-    write_button.grid(row=6, column=1)
-# END OF FN make_write_button_record_change
-
-"""
-FN PURPOSE: Write a note that describes the request,
-the actions taken to complete the request,
-and any other comments or concerns.
 - For status changes, adding a student, and exiting a student
 """
 def write_note(field_list, actions, note_frame, bg_color):
