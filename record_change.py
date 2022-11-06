@@ -52,15 +52,12 @@ def record_change(req_type, bg_color):
 
     w.configure_entries(entry_list, w.entry_width_size)
 
-    # USER INPUT FOR REQUEST DETAILS
-    w.input_request_details(field_list, role_options, input_frame, bg_color)
-
     text = "Change Requested"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=7, column=0)
 
     record_change_types = [
-        "Other",
+        "Record Change",
         "Student should not be on my caseload",
         "Add provider",
         "Change Case Manager"
@@ -68,10 +65,12 @@ def record_change(req_type, bg_color):
 
     record_change_type = w.StringVar()
     record_change_dropdown = w.OptionMenu(input_frame, record_change_type, *record_change_types)
-    record_change_dropdown.grid(row=8, column=0)
-    record_change_type.set(record_change_types[0])
+    w.input_dropdown(record_change_type, record_change_types, record_change_dropdown, 8, 0)
     field_list[0] = record_change_type.get() # !! FIX THIS !!
     
+    # USER INPUT FOR REQUEST DETAILS
+    w.input_request_details(field_list, role_options, input_frame, bg_color)
+
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
@@ -80,8 +79,8 @@ def record_change(req_type, bg_color):
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    w.make_write_button(write_button, field_list, actions,
-    frame_list, bg_color)
+    w.make_write_button_record_change(write_button, field_list, actions,
+    frame_list, bg_color, record_change_type)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
