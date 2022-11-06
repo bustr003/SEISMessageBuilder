@@ -15,7 +15,11 @@ root.title("SpEd Message Builder") # Text to display on the title bar
 # Window geometry
 window_width = 400
 window_height = 500
-root.geometry(f"{window_width}x{window_height}")
+screen_width = root.winfo_screenwidth() # Get width of the monitor
+screen_height = root.winfo_screenheight() # Get width of the monitor
+x_pop = screen_width/4 # The x coordinate of the top left corner
+y_pop = screen_height/4 # The y coordinate of the top left corner
+root.geometry(f"{window_width}x{window_height}+{int(x_pop)}+{int(y_pop)}")
 
 # Values for Clear button
 clearRequest_button_text = "x"
