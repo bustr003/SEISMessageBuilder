@@ -8,7 +8,7 @@ Options
 - remove provider/cm
 - other
 """
-def record_change(reqType, bg_color):
+def record_change(req_type, bg_color):
     w.f_record_change["bg"] = bg_color
 
     # CREATE THE FRAMES
@@ -24,22 +24,22 @@ def record_change(reqType, bg_color):
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
-    stuLN = w.Entry(input_frame)
-    stuFN = w.Entry(input_frame)
-    reqName = w.Entry(input_frame)
-    reqComment = w.Entry(input_frame)
+    stu_LN = w.Entry(input_frame)
+    stu_FN = w.Entry(input_frame)
+    requester_name = w.Entry(input_frame)
+    requester_comment = w.Entry(input_frame)
 
-    reqRole = w.StringVar()
-    role_options = w.OptionMenu(input_frame, reqRole, *w.staff_roles)
+    requester_role = w.StringVar()
+    role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
 
     # CREATE THE LIST OF FIELDS
     field_list = []
-    field_list.append(reqType) # 0
-    field_list.append(stuLN) # 1
-    field_list.append(stuFN) # 2
-    field_list.append(reqName) # 3
-    field_list.append(reqComment) # 4
-    field_list.append(reqRole) # 5
+    field_list.append(req_type) # 0
+    field_list.append(stu_LN) # 1
+    field_list.append(stu_FN) # 2
+    field_list.append(requester_name) # 3
+    field_list.append(requester_comment) # 4
+    field_list.append(requester_role) # 5
 
     entry_list = []
     for i in range(1,5):

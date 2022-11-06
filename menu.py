@@ -41,30 +41,30 @@ Each function does:
 """
 r_width = r_height = 1
 r_y = 0
-def click_record_change(reqType, bg_color):
+def click_record_change(req_type, bg_color):
     w.hide_all_frames()
     w.f_record_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    record_change.record_change(reqType, bg_color)
+    record_change.record_change(req_type, bg_color)
 
-def click_add_student(reqType, bg_color):
+def click_add_student(req_type, bg_color):
     w.hide_all_frames()
     w.f_add_student.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    add_student.add_student(reqType, bg_color)
+    add_student.add_student(req_type, bg_color)
 
-def click_status_change(reqType, bg_color):
+def click_status_change(req_type, bg_color):
     w.hide_all_frames()
     w.f_status_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    status_change.status_change(reqType, bg_color)
+    status_change.status_change(req_type, bg_color)
 
-def click_exit_student(reqType, bg_color):
+def click_exit_student(req_type, bg_color):
     w.hide_all_frames()
     w.f_exit_student.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    exit_student.exit_student(reqType, bg_color)
+    exit_student.exit_student(req_type, bg_color)
 
-def click_follow_up(followType, followItem):
+def click_follow_up(follow_type, follow_item):
     w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    follow_up.follow_up(followType, followItem)
+    follow_up.follow_up(follow_type, follow_item)
 # END OF FUNCTIONS: Menu options
 
 # Menu: Request

@@ -7,7 +7,7 @@ Follow up on:
 - unsigned IEP
 - unsigned amendment 
 """
-def follow_up(followType, followItem):
+def follow_up(follow_type, follow_item):
     # SET BACKGROUND
     bg_color = w.pink # !! BG COLOR
 
@@ -24,21 +24,21 @@ def follow_up(followType, followItem):
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
-    cmName = w.Entry(input_frame)
+    cm_name = w.Entry(input_frame)
     date = w.Entry(input_frame)
-    stuLN = w.Entry(input_frame)
-    stuFN = w.Entry(input_frame)
-    seisID = w.Entry(input_frame)
+    stu_LN = w.Entry(input_frame)
+    stu_FN = w.Entry(input_frame)
+    seis_id = w.Entry(input_frame)
 
     # CREATE THE LIST OF FIELDS
     field_list = []
-    field_list.append(followType) # 0
-    field_list.append(followItem) # 1
-    field_list.append(cmName) # 2
+    field_list.append(follow_type) # 0
+    field_list.append(follow_item) # 1
+    field_list.append(cm_name) # 2
     field_list.append(date) # 3
-    field_list.append(stuLN) # 4
-    field_list.append(stuFN) # 5
-    field_list.append(seisID) # 6
+    field_list.append(stu_LN) # 4
+    field_list.append(stu_FN) # 5
+    field_list.append(seis_id) # 6
 
     entry_list = []
     for i in range(2,7):

@@ -1,7 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.iconbitmap(r"bunny.ico")
+root.iconbitmap(r"images\bunny_face.ico")
 root.title("SpEd Message Builder")
 
 # Window
