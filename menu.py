@@ -18,12 +18,15 @@ Files for setting up the GUI
 - - Creates the GUI window.
 - - Contains the more complex functions used by the menu options.
 
-Files for the primary functions of each menu option
+Files for the primary functions and own functions of each menu option
 3) add.py: for add requests
 4) status.py:  for status change requests.
 5) record.py: for record change requests.
 6) exit_student.py: for exit requests.
 7) follow_up.py: for unaffirmed/unsigned IEPs/Amendments
+
+Files for references
+8) glossary.py: an interactive glossary
 """
 
 import window as w # Tkinter window
