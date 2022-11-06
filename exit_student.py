@@ -13,10 +13,10 @@ def exit_student(req_type, bg_color):
     w.f_exit_student["bg"] = bg_color
 
     # CREATE THE FRAMES
-    request_frame = w.f_exit_student # !! FRAME
-    close_frame = w.Frame(request_frame)
-    input_frame = w.Frame(request_frame)
-    note_frame = w.Frame(request_frame)
+    page_frame = w.f_exit_student # !! FRAME
+    close_frame = w.Frame(page_frame)
+    input_frame = w.Frame(page_frame)
+    note_frame = w.Frame(page_frame)
 
     # CONFIGURE THE FRAMES
     frame_list = []

@@ -32,6 +32,7 @@ import add_student # Request Type: Add Student
 import status_change # Request Type: Eligibility Change
 import exit_student # Request Type: Exit
 import follow_up # Unaffirmed/Unsigned IEP/Amendment
+import glossary # Terms and their definitions
 
 # Main Menu
 main_menu = w.Menu(w.root)
@@ -72,6 +73,11 @@ def click_follow_up(follow_type, follow_item):
     w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
     follow_up.follow_up(follow_type, follow_item, w.pink)
+
+def click_glossary(bg_color):
+    w.hide_all_frames()
+    w.f_glossary.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    glossary.glossary(bg_color)
 # END OF FUNCTIONS: Menu options
 
 """
@@ -136,6 +142,8 @@ type_menu.add_separator()
 # === Menu: Follow Up ===
 follow_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Follow Up", menu=follow_menu)
+
+# --- IEPs and Amendments
 follow_menu.add_command(label="Unsigned IEP",
                         command=lambda: click_follow_up("Unsigned", "IEP"))
 follow_menu.add_command(label="Unsigned Amendment",
@@ -145,10 +153,26 @@ follow_menu.add_command(label="Unaffirmed IEP",
 follow_menu.add_command(label="Unaffirmed Amendment",
                         command=lambda: click_follow_up("Unaffirmed", "Amendment"))
 
-# === Menu: Meeting Alerts ===
-alert_menu = w.Menu(main_menu)
-main_menu.add_cascade(label="Meeting Alerts", menu=alert_menu)
-alert_menu.add_command(label="Under construction!")
+follow_menu.add_separator()
+
+# --- Meeting Alerts
+def open_popup():
+   top = w.Toplevel(w.root)
+   width = 300
+   height = 100
+   top.geometry(f"{width}x{height}")
+   top.title("Oops!")
+   l = w.Label(top, text="Meeting Alerts are under construction.", pady=height/2)
+   l.pack()
+
+follow_menu.add_command(label="Meeting Alerts",
+                        command=open_popup)
+
+# === Menu: Help ===
+help_menu = w.Menu(main_menu)
+main_menu.add_cascade(label="Help", menu=help_menu)
+help_menu.add_command(label="Glossary",
+                        command=lambda: click_glossary(w.yellow))
 
 w.root.mainloop()
 

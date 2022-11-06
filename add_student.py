@@ -13,10 +13,10 @@ def add_student(req_type, bg_color):
     w.f_add_student["bg"] = bg_color
 
     # CREATE THE FRAMES
-    request_frame = w.f_add_student # !! FRAME
-    close_frame = w.Frame(request_frame)
-    input_frame = w.Frame(request_frame)
-    note_frame = w.Frame(request_frame)
+    page_frame = w.f_add_student # !! FRAME
+    close_frame = w.Frame(page_frame)
+    input_frame = w.Frame(page_frame)
+    note_frame = w.Frame(page_frame)
 
     frame_list = []
     frame_list.append(close_frame)

@@ -64,6 +64,15 @@ f_add_student = Frame(root)
 f_status_change = Frame(root)
 f_exit_student = Frame(root)
 f_follow_up = Frame(root)
+f_glossary = Frame(root)
+
+window_frames = []
+window_frames.append(f_record_change)
+window_frames.append(f_add_student)
+window_frames.append(f_status_change)
+window_frames.append(f_exit_student)
+window_frames.append(f_follow_up)
+window_frames.append(f_glossary)
 
 """
 FN PURPOSE: Hide all frames to make the window clean
@@ -73,12 +82,8 @@ To be run each time a menu option is selected.
 def hide_all_frames():
     f_index.pack_forget()
 
-    f_record_change.place_forget()
-    f_add_student.place_forget()
-    f_status_change.place_forget()
-    f_exit_student.place_forget()
-
-    f_follow_up.place_forget()
+    for frame in window_frames:
+        frame.place_forget()
 # END OF FN hide_all_frames
 
 """
