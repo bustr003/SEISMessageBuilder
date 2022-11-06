@@ -15,8 +15,7 @@ root.title("SpEd Message Builder") # Text to display on the title bar
 # Window geometry
 window_width = 400
 window_height = 500
-geo = str(window_width) + "x" + str(window_height)
-root.geometry(geo)
+root.geometry(f"{window_width}x{window_height}")
 
 # Values for Clear button
 clearRequest_button_text = "x"
@@ -33,6 +32,10 @@ f_index = Frame(root)
 l = Label(f_index, text=index_text, font=("Calibri", 12))
 f_index.pack()
 l.pack()
+
+index_image = PhotoImage(file = r"images\bunny_pixel.png")
+l = Label(image=index_image)
+l.pack(pady=10)
 
 """
 COLORS
