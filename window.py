@@ -1,6 +1,7 @@
 from tkinter import *
 
 root = Tk()
+root.iconbitmap(r"bunny.ico")
 root.title("SpEd Message Builder")
 
 # Window
@@ -11,10 +12,22 @@ root.geometry(geo)
 
 # Values for Clear button
 clearRequest_button_text = "x"
-clearRequest_label_text = "Close this request builder"
+clearRequest_label_text = "Close this builder before opening a new one"
+
+# Index Page
+index_text = "\nWelcome to the Special Education Message Builder!"
+index_text += "\nUse this tool to generate messages using templates."
+index_text += "\n\nRequest:\nAn admin note for a SEIS request"
+index_text += "\n\nFollow Up:\nA message for unaffirmed/unsigned IEPs/amendments"
+index_text += "\n\nMeeting Alert:\nA message for upcoming/overdue meetings"
+
+f_index = Frame(root)
+l = Label(f_index, text=index_text, font=("Calibri", 12))
+f_index.pack()
+l.pack()
 
 """
-REQUESTS MENU
+FRAMES
 """
 red = "#f4cccc"
 orange = "#fce5cd"
@@ -23,10 +36,26 @@ green = "#d9ead3"
 blue = "#c9daf8"
 purple = "#d9d2e9"
 
+f_record_change = Frame(root)
+f_add_student = Frame(root)
 f_status_change = Frame(root)
-f_record_change = Frame(root, bg=blue)
-f_status_exit = Frame(root)
-f_add = Frame(root, bg=orange)
+f_exit_student = Frame(root)
+
+"""
+FN PURPOSE: Hide all frames to make the window clean
+for a new frame.
+To be run each time a menu option is selected.
+"""
+def hide_all_frames():
+    f_index.pack_forget()
+
+    f_record_change.place_forget()
+    f_add_student.place_forget()
+    f_status_change.place_forget()
+    f_exit_student.place_forget()
+
+    f_follow_up.place_forget()
+# END OF FN: hide_all_frames
 
 # STAFF ROLE DROPDOWN OPTIONS
 staff_roles = ["...",
@@ -94,10 +123,6 @@ FN PURPOSE: Set up entry boxes.
 """
 entry_width_size = 20 # Size of an entry box
 def configure_entries(entry_list, width):
-    """
-    for i in range(1, len(entry_list)-1):
-        entry_list[i].config(width=width)
-    """
     for entry in entry_list:
         entry.config(width=width)
 # END OF FN: configure_entries
@@ -125,6 +150,9 @@ FN PURPOSE: Destroy the widgets for this menu option.
 def clear_frames(frame_list):
     for frame in frame_list:
         frame.destroy()
+    hide_all_frames()
+    f_index.pack()
+    l.pack()
 # END OF FN: clear_frames
 
 """

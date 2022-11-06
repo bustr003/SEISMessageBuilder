@@ -1,18 +1,14 @@
 import window as w
 
 """
-Follow up on:
-- unaffirmed IEP
-- unaffirmed amendment
-- unsigned IEP
-- unsigned amendment 
+Exit a student
 """
-def follow_up(followType, followItem):
+def exit_student(reqType, bg_color):
     # SET BACKGROUND
-    bg_color = w.pink # !! BG COLOR
+    w.f_exit_student["bg"] = bg_color
 
     # CREATE THE FRAMES
-    request_frame = w.f_follow_up # !! FRAME
+    request_frame = w.f_exit_student # !! FRAME
     close_frame = w.Frame(request_frame)
     input_frame = w.Frame(request_frame)
     note_frame = w.Frame(request_frame)
@@ -24,36 +20,45 @@ def follow_up(followType, followItem):
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
-    cmName = w.Entry(input_frame)
-    date = w.Entry(input_frame)
     stuLN = w.Entry(input_frame)
     stuFN = w.Entry(input_frame)
-    seisID = w.Entry(input_frame)
+    reqName = w.Entry(input_frame)
+    reqComment = w.Entry(input_frame)
+
+    reqRole = w.StringVar()
+    role_options = w.OptionMenu(input_frame, reqRole, *w.staff_roles)
 
     # CREATE THE LIST OF FIELDS
     field_list = []
-    field_list.append(followType) # 0
-    field_list.append(followItem) # 1
-    field_list.append(cmName) # 2
-    field_list.append(date) # 3
-    field_list.append(stuLN) # 4
-    field_list.append(stuFN) # 5
-    field_list.append(seisID) # 6
+    field_list.append(reqType) # 0
+    field_list.append(stuLN) # 1
+    field_list.append(stuFN) # 2
+    field_list.append(reqName) # 3
+    field_list.append(reqComment) # 4
+    field_list.append(reqRole) # 5
 
     entry_list = []
-    for i in range(2,7):
+    for i in range(1,5):
         entry_list.append(field_list[i])
 
     w.configure_entries(entry_list, w.entry_width_size)
 
     # USER INPUT FOR REQUEST DETAILS
-    w.input_follow_details(field_list, input_frame, bg_color)
+    w.input_request_details(field_list, role_options, input_frame, bg_color)
 
+    # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
+    if reqType == "Exit 70":
+        actions = [
+            "Request completed.",
+            "\nParent signed \"no longer eligible\" on "
+        ]
+    
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    w.make_follow_write_button(write_button, field_list, frame_list, bg_color)
+    w.make_write_button(write_button, field_list, actions,
+    frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
     w.make_clearFrames_button(clearFrames_button, frame_list, bg_color)
-# END OF FN: affirm_IEP
+# END OF FN: exit_student

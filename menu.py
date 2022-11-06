@@ -3,11 +3,9 @@ PROGRAM TITLE: MessageBuilderGUI
 ALTERNATE TITLES:
 - SEISMessageBuilder
 - SpEd Message Builder
-
 AUTHOR: Mhealyssah Bustria
 DATE CREATED: unknown - on personal laptop
 DATE ACCESSED ON WORK COMPUTER: 10/28/2022
-
 FILES
 1) menu.py: The main file.
 - - Creates the home page and menu options.
@@ -15,54 +13,23 @@ FILES
 2) window.py: The GUI window.
 - - Creates the GUI window.
 - - Contains the more complex functions used by the menu options.
-
 Files for basic functions
 3) add.py: for add requests
 4) status.py:  for status change requests.
 5) record.py: for record change requests.
-6) exit.py: for exit requests.
+6) exit_student.py: for exit requests.
 7) follow_up.py: for unaffirmed/unsigned IEPs/Amendments
 """
 
 import window as w # Tkinter window
-import status # Request Type: Eligibility Change
-import add # Request Type: Add Student
-import record # Request Type: Record Change
-import exit # Request Type: Exit
+import status_change # Request Type: Eligibility Change
+import record_change # Request Type: Record Change
+import add_student # Request Type: Add Student
+import exit_student # Request Type: Exit
 import follow_up # Unaffirmed/Unsigned IEP/Amendment
-
-# Index Page
-index_text = "\nWelcome to the Special Education Message Builder!"
-index_text += "\nUse this tool to generate messages using templates."
-index_text += "\n\nRequest:\nAn admin note for a SEIS request"
-index_text += "\n\nFollow Up:\nA message for unaffirmed/unsigned IEPs/amendments"
-index_text += "\n\nMeeting Alert:\nA message for upcoming/overdue meetings"
-
-f_index = w.Frame(w.root)
-def show_index():
-    f_index.pack()
-    l = w.Label(f_index, text=index_text, font=("Calibri", 12))
-    l.pack()
-show_index() # How to show after closing a menu option?
-
 # Main Menu
 main_menu = w.Menu(w.root)
 w.root.config(menu=main_menu)
-
-"""
-FN PURPOSE: Hide all frames to make the window clean
-for a new frame.
-To be run each time a menu option is selected.
-"""
-def hide_all_frames():
-    f_index.pack_forget()
-
-    w.f_add.place_forget()
-    w.f_status_change.place_forget()
-    w.f_record_change.place_forget()
-    w.f_status_exit.place_forget()
-    w.f_follow_up.place_forget()
-# END OF FN: hide_all_frames
 
 """
 MENU OPTION FUNCTIONS:
@@ -74,28 +41,28 @@ Each function does:
 """
 r_width = r_height = 1
 r_y = 0
-def click_add():
-    hide_all_frames()
-    w.f_add.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    add.add()
+def click_record_change(reqType, bg_color):
+    w.hide_all_frames()
+    w.f_record_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    record_change.record_change(reqType, bg_color)
+
+def click_add_student(reqType, bg_color):
+    w.hide_all_frames()
+    w.f_add_student.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    add_student.add_student(reqType, bg_color)
 
 def click_status_change(reqType, bg_color):
-    hide_all_frames()
+    w.hide_all_frames()
     w.f_status_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    status.status_change(reqType, bg_color)
+    status_change.status_change(reqType, bg_color)
 
-def click_record_change(reqType, bg_color):
-    hide_all_frames()
-    w.f_record_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    record.record_change(reqType, bg_color)
-
-def click_status_exit(reqType, bg_color):
-    hide_all_frames()
-    w.f_status_exit.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    exit.status_exit(reqType, bg_color)
+def click_exit_student(reqType, bg_color):
+    w.hide_all_frames()
+    w.f_exit_student.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    exit_student.exit_student(reqType, bg_color)
 
 def click_follow_up(followType, followItem):
-    hide_all_frames()
+    w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
     follow_up.follow_up(followType, followItem)
 # END OF FUNCTIONS: Menu options
@@ -104,9 +71,15 @@ def click_follow_up(followType, followItem):
 type_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Request", menu=type_menu)
 
+# --- Request: Record Change
+type_menu.add_command(label="Record Change",
+                      command=lambda:click_record_change("Record Change", w.blue))
+
+type_menu.add_separator()
+
 # --- Request: Add
-type_menu.add_command(label="Add Student", # green
-                      command=click_add)
+type_menu.add_command(label="Add Student",
+                      command=lambda:click_add_student("Add Student", w.orange))
 
 type_menu.add_separator()
 
@@ -114,26 +87,20 @@ type_menu.add_separator()
 type_menu.add_command(label="Status: Make Eligible",
                       command=lambda:click_status_change("Status: Make Eligible", w.green))
 
-type_menu.add_command(label="Status: Make DNQ", # red
+type_menu.add_command(label="Status: Make DNQ",
                       command=lambda:click_status_change("Status: Make DNQ", w.red))
 
-type_menu.add_command(label="Status: AP Declined", # red
+type_menu.add_command(label="Status: AP Declined",
                       command=lambda:click_status_change("Status: Assessment Plan Declined", w.red))
 
-type_menu.add_command(label="Status: Eligible but NotProvSvcs", # red
+type_menu.add_command(label="Status: Eligible but NotProvSvcs",
                       command=lambda:click_status_change("Status: Eligible but NotProvSvcs", w.red))
-
-type_menu.add_separator()
-
-# --- Request: Record Change
-type_menu.add_command(label="Record Change", # blue
-                      command=lambda:click_record_change("Record Change", w.blue))
 
 type_menu.add_separator()
 
 # --- Request: Exit
 type_menu.add_command(label="Exit 70",
-                      command=lambda:click_status_exit("Exit 70", w.purple))
+                      command=lambda:click_exit_student("Exit 70", w.purple))
 
 
 type_menu.add_separator()
