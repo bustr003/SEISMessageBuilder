@@ -1,4 +1,4 @@
-# FILE: record_change.py
+# FILE record_change.py
 """
 Primary function for making a change to a student's record.
 """

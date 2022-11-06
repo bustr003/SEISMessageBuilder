@@ -1,4 +1,4 @@
-# FILE: status_change.py
+# FILE status_change.py
 """
 Primary function for changing a student's status.
 """

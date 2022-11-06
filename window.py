@@ -1,4 +1,4 @@
-# FILE: window.py
+# FILE window.py
 """
 - Set up the Tkinter window
 - Options for colors

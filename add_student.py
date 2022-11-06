@@ -1,4 +1,4 @@
-# FILE: add_student.py
+# FILE add_student.py
 """
 Primary function for adding a student.
 """

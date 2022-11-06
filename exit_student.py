@@ -1,4 +1,4 @@
-# FILE: exit_student.py
+# FILE exit_student.py
 """
 Primary function for exiting a student.
 """

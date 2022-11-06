@@ -1,4 +1,4 @@
-# FILE: menu.py
+# FILE menu.py
 """
 PROGRAM TITLE: MessageBuilderGUI
 ALTERNATE TITLES:
