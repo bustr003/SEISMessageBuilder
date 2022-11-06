@@ -13,13 +13,16 @@ root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
 root.title("SpEd Message Builder") # Text to display on the title bar
 
 # Window geometry
-window_width = 400
-window_height = 500
+window_width = 420
+window_height = 610
 screen_width = root.winfo_screenwidth() # Get width of the monitor
 screen_height = root.winfo_screenheight() # Get width of the monitor
 x_pop = screen_width/4 # The x coordinate of the top left corner
 y_pop = screen_height/4 # The y coordinate of the top left corner
 root.geometry(f"{window_width}x{window_height}+{int(x_pop)}+{int(y_pop)}")
+
+textbox_width = 50
+textbox_height = 18
 
 # Values for Clear button
 clearRequest_button_text = "x"
@@ -202,9 +205,13 @@ def write_note(field_list, actions, note_frame, bg_color):
     clearFields_button["command"] = lambda: clear_fields(field_list)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
-    textbox = Text(note_frame)
-    textbox.config(width=50, height=50)
+    textbox = Text(note_frame, wrap="word")
+    textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
+
+    #scrollbar = Scrollbar(note_frame, command=textbox.yview)
+    #scrollbar.grid(row=2, column=1, sticky='nsew')
+    #textbox["yscrollcommand"] = scrollbar.set
 
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[0] + "\n"
     textbox.insert("end", line)
@@ -306,7 +313,7 @@ def write_message(field_list, note_frame, bg_color):
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
     textbox = Text(note_frame)
-    textbox.config(width=50, height=50)
+    textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
 
     if field_list[0] == "Unaffirmed":
