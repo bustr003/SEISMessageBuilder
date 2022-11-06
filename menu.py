@@ -11,30 +11,33 @@ DATE ACCESSED ON WORK COMPUTER: 10/28/2022
 === FILES ===
 
 Files for setting up the GUI
-1) menu.py: The main file.
+1) menu.py The main file.
 - - Creates the home page and menu options.
 - - RUN FROM THIS FILE!!!
-2) window.py: The GUI window & secondary functions
+2) window.py The GUI window & secondary functions
 - - Creates the GUI window.
-- - Contains the more complex functions used by the menu options.
+- - Contains functions that are shared by multiple menu options.
 
 Files for the primary functions and own functions of each menu option
-3) add.py: for add requests
-4) status.py:  for status change requests.
-5) record.py: for record change requests.
-6) exit_student.py: for exit requests.
-7) follow_up.py: for unaffirmed/unsigned IEPs/Amendments
+3) add.py For add requests
+4) status.py For status change requests.
+5) record.py For record change requests.
+6) exit_student.py For exit requests.
+7) follow_up.py For unaffirmed/unsigned IEPs/Amendments
 
 Files for references
-8) glossary.py: an interactive glossary
+8) glossary.py An interactive glossary
 """
 
 import window as w # Tkinter window
+
 import record_change # Request Type: Record Change
 import add_student # Request Type: Add Student
 import status_change # Request Type: Eligibility Change
 import exit_student # Request Type: Exit
+
 import follow_up # Unaffirmed/Unsigned IEP/Amendment
+
 import glossary # Terms and their definitions
 
 # Main Menu
@@ -42,7 +45,7 @@ main_menu = w.Menu(w.root)
 w.root.config(menu=main_menu)
 
 """
-MENU OPTION FUNCTIONS:
+MENU OPTION FUNCTIONS
 Each menu option has an associated function.
 Each function does:
 - Hide all frames to make the window fresh.
@@ -52,6 +55,7 @@ Each function does:
 r_width = r_height = 1
 r_y = 0 # Top padding
 
+# Requests
 def click_record_change(req_type, bg_color):
     w.hide_all_frames()
     w.f_record_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
@@ -72,16 +76,18 @@ def click_exit_student(req_type, bg_color):
     w.f_exit_student.place(relwidth=r_width, relheight=r_height, rely=r_y)
     exit_student.exit_student(req_type, bg_color)
 
+# Follow Ups
 def click_follow_up(follow_type, follow_item):
     w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
     follow_up.follow_up(follow_type, follow_item, w.pink)
 
+# Resources
 def click_glossary(bg_color):
     w.hide_all_frames()
     w.f_glossary.place(relwidth=r_width, relheight=r_height, rely=r_y)
     glossary.glossary(bg_color)
-# END OF FUNCTIONS: Menu options
+# END OF Menu Option Functions
 
 """
 CREATE THE MENU OPTIONS
