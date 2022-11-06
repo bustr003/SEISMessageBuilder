@@ -50,6 +50,12 @@ def record_change(req_type, bg_color):
     # USER INPUT FOR REQUEST DETAILS
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
+    text = "Change Requested"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=7, column=0)
+    record_change_type = w.Entry(input_frame)
+    record_change_type.grid(row=8, column=0)
+
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",

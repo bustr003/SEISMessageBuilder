@@ -1,3 +1,4 @@
+# FILE: menu.py
 """
 PROGRAM TITLE: MessageBuilderGUI
 ALTERNATE TITLES:
@@ -27,6 +28,7 @@ import record_change # Request Type: Record Change
 import add_student # Request Type: Add Student
 import exit_student # Request Type: Exit
 import follow_up # Unaffirmed/Unsigned IEP/Amendment
+
 # Main Menu
 main_menu = w.Menu(w.root)
 w.root.config(menu=main_menu)
@@ -40,7 +42,8 @@ Each function does:
 - Run the correct function from the correct file.
 """
 r_width = r_height = 1
-r_y = 0
+r_y = 0 # Top padding
+
 def click_record_change(req_type, bg_color):
     w.hide_all_frames()
     w.f_record_change.place(relwidth=r_width, relheight=r_height, rely=r_y)
@@ -123,3 +126,5 @@ main_menu.add_cascade(label="Meeting Alerts", menu=alert_menu)
 alert_menu.add_command(label="Under construction!")
 
 w.root.mainloop()
+
+# EOF menu.py
