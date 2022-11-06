@@ -73,7 +73,7 @@ def add_student(req_type, bg_color):
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
-    w.make_clearFrames_button(clearFrames_button, frame_list, bg_color)
+    w.make_clear_frames_button(clearFrames_button, frame_list, bg_color)
 # END OF FN add_student
 
 # EOF add_student.py

@@ -25,8 +25,8 @@ textbox_width = 50
 textbox_height = 18
 
 # Values for Clear button
-clearRequest_button_text = "x"
-clearRequest_label_text = "Close this builder before opening a new one"
+clear_request_button_text = "x"
+clear_request_label_text = "Close this builder before opening a new one"
 
 # Index Page
 index_text = "\nWelcome to the Special Education Message Builder!"
@@ -208,14 +208,14 @@ def clear_frames(frame_list):
 FN PURPOSE: Make a button.
 When pressed, the widgets for this menu option will be destroyed.
 """
-def make_clearFrames_button(clearRequest_button, frame_list, bg_color):
-    clearRequest_button["text"] = clearRequest_button_text
-    clearRequest_button["command"] = lambda: clear_frames(frame_list)
-    clearRequest_button.grid(row=0, column=0, sticky=W)
+def make_clear_frames_button(clear_request_button, frame_list, bg_color):
+    clear_request_button["text"] = clear_request_button_text
+    clear_request_button["command"] = lambda: clear_frames(frame_list)
+    clear_request_button.grid(row=0, column=0, sticky=W)
     l = Label(frame_list[0], bg=bg_color)
-    l["text"] = clearRequest_label_text
+    l["text"] = clear_request_label_text
     l.grid(row=0, column=1, sticky=W)
-# END OF FN make_clearFrames_button
+# END OF FN make_clear_frames_button
 
 """
 FN PURPOSE: Write a note that describes the request,
