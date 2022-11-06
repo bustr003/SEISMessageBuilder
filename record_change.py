@@ -58,8 +58,18 @@ def record_change(req_type, bg_color):
     text = "Change Requested"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=7, column=0)
-    record_change_type = w.Entry(input_frame)
-    record_change_type.grid(row=8, column=0)
+
+    record_change_types = [
+        "Other",
+        "Student should not be on my caseload",
+        "Add provider",
+        "Change Case Manager"
+    ]
+
+    record_change_type = w.StringVar()
+    record_change_types = w.OptionMenu(input_frame, record_change_type, *record_change_types)
+    record_change_type.set("Other")#record_change_types[0])
+    record_change_types.grid(row=8, column=0)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [

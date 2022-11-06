@@ -101,7 +101,8 @@ staff_roles = ["...",
     "Occupational Therapist",
     "Behavior Intervention Specialist",
     "Physical Education Teacher",
-    "General Education Teacher"]
+    "General Education Teacher"
+    ]
 
 """
 FN PURPOSE: Get user input about the request.
