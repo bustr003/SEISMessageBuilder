@@ -55,8 +55,9 @@ def status_change(req_type, bg_color):
     if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
-            "\nSpEd Type: - to be added",
+            "SpEd Type: - to be added",
             "% OUT of regular class: ",
+            "Team Meeting Notes: ",
             "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
@@ -65,7 +66,7 @@ def status_change(req_type, bg_color):
         ]
     elif req_type == "Status: Make DNQ":
         actions = [
-            "Request completed.\n",
+            "Request completed.",
             "Parent Consent Date: ",
             "Plan Type: ",
             "Parent signed \"not eligible\" on ",
@@ -73,7 +74,7 @@ def status_change(req_type, bg_color):
         ]
     elif req_type == "Status: Assessment Plan Declined":
         actions = [
-            "Request completed.\n",
+            "Request completed.",
             "Parent signed \"I do not agree with the proposed assessment\" on ",
             "CALPADS \"Pending\" Transaction: ",
             "Parent consent date for initial eval: - removed",
@@ -84,7 +85,7 @@ def status_change(req_type, bg_color):
         ]
     elif req_type == "Status: Eligible but NotProvSvcs":
         actions = [
-            "Request completed.\n",
+            "Request completed.",
             "Parent signed \"I decline the offer\" on ",
             "Parent consent date for initial eval: ",
             "Plan Type: 800 -",

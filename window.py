@@ -219,10 +219,6 @@ def write_note_record_change(field_list, actions, note_frame, bg_color, change_r
     textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
 
-    #scrollbar = Scrollbar(note_frame, command=textbox.yview)
-    #scrollbar.grid(row=2, column=1, sticky='nsew')
-    #textbox["yscrollcommand"] = scrollbar.set
-
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + change_requested.get() + "\n"
     textbox.insert("end", line)
 
@@ -231,7 +227,7 @@ def write_note_record_change(field_list, actions, note_frame, bg_color, change_r
 
     for i in range(0, len(actions)):
         textbox.insert("end", actions[i])
-        if (i > 0 and i < len(actions)-1):
+        if (i < len(actions)-1):
             textbox.insert("end", "\n")
 # END OF FN write_note_record_change
 
@@ -267,10 +263,6 @@ def write_note(field_list, actions, note_frame, bg_color):
     textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
 
-    #scrollbar = Scrollbar(note_frame, command=textbox.yview)
-    #scrollbar.grid(row=2, column=1, sticky='nsew')
-    #textbox["yscrollcommand"] = scrollbar.set
-
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[0] + "\n"
     textbox.insert("end", line)
 
@@ -279,7 +271,7 @@ def write_note(field_list, actions, note_frame, bg_color):
 
     for i in range(0, len(actions)):
         textbox.insert("end", actions[i])
-        if (i > 0 and i < len(actions)-1):
+        if (i < len(actions)-1):
             textbox.insert("end", "\n")
 # END OF FN write_note
 

@@ -54,7 +54,7 @@ def add_student(req_type, bg_color):
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
-        "\nPowerSchool Record: ",
+        "PowerSchool Record: ",
         "SEIS record: ",
         "SSID: ",
         "District Student ID: ",

@@ -74,7 +74,7 @@ def record_change(req_type, bg_color):
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
-        "\n"
+        ""
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
