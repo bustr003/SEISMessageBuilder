@@ -1,8 +1,13 @@
+# FILE: record_change.py
+"""
+Primary function for making a change to a student's record.
+"""
+
 import window as w
 
 """
 Change a student's IEP Team
-Options
+Types of changes requested
 - add provider
 - change case manager
 - remove provider/cm
@@ -70,4 +75,6 @@ def record_change(req_type, bg_color):
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
     w.make_clearFrames_button(clearFrames_button, frame_list, bg_color)
-# END OF FN: record_change
+# END OF FN record_change
+
+# EOF record_change.py

@@ -1,3 +1,8 @@
+# FILE: follow_up.py
+"""
+Primary function for following up on IEPs and amendments.
+"""
+
 import window as w
 
 """
@@ -7,9 +12,9 @@ Follow up on:
 - unsigned IEP
 - unsigned amendment 
 """
-def follow_up(follow_type, follow_item):
+def follow_up(follow_type, follow_item, bg_color):
     # SET BACKGROUND
-    bg_color = w.pink # !! BG COLOR
+    w.f_follow_up["bg"] = bg_color
 
     # CREATE THE FRAMES
     request_frame = w.f_follow_up # !! FRAME
@@ -56,4 +61,6 @@ def follow_up(follow_type, follow_item):
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
     w.make_clearFrames_button(clearFrames_button, frame_list, bg_color)
-# END OF FN: affirm_IEP
+# END OF FN follow_up
+
+# EOF follow_up.py

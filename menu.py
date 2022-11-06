@@ -7,14 +7,18 @@ ALTERNATE TITLES:
 AUTHOR: Mhealyssah Bustria
 DATE CREATED: unknown - on personal laptop
 DATE ACCESSED ON WORK COMPUTER: 10/28/2022
-FILES
+
+=== FILES ===
+
+Files for setting up the GUI
 1) menu.py: The main file.
 - - Creates the home page and menu options.
 - - RUN FROM THIS FILE!!!
-2) window.py: The GUI window.
+2) window.py: The GUI window & secondary functions
 - - Creates the GUI window.
 - - Contains the more complex functions used by the menu options.
-Files for basic functions
+
+Files for the primary functions of each menu option
 3) add.py: for add requests
 4) status.py:  for status change requests.
 5) record.py: for record change requests.
@@ -23,9 +27,9 @@ Files for basic functions
 """
 
 import window as w # Tkinter window
-import status_change # Request Type: Eligibility Change
 import record_change # Request Type: Record Change
 import add_student # Request Type: Add Student
+import status_change # Request Type: Eligibility Change
 import exit_student # Request Type: Exit
 import follow_up # Unaffirmed/Unsigned IEP/Amendment
 
@@ -67,10 +71,14 @@ def click_exit_student(req_type, bg_color):
 def click_follow_up(follow_type, follow_item):
     w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    follow_up.follow_up(follow_type, follow_item)
+    follow_up.follow_up(follow_type, follow_item, w.pink)
 # END OF FUNCTIONS: Menu options
 
-# Menu: Request
+"""
+CREATE THE MENU OPTIONS
+- Titles & Dropdowns
+"""
+# === Menu: Request ===
 type_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Request", menu=type_menu)
 
@@ -80,13 +88,13 @@ type_menu.add_command(label="Record Change",
 
 type_menu.add_separator()
 
-# --- Request: Add
+# --- Request: Add Student
 type_menu.add_command(label="Add Student",
                       command=lambda:click_add_student("Add Student", w.orange))
 
 type_menu.add_separator()
 
-# --- Request: Status
+# --- Request: Status Change
 type_menu.add_command(label="Status: Make Eligible",
                       command=lambda:click_status_change("Status: Make Eligible", w.green))
 
@@ -101,14 +109,14 @@ type_menu.add_command(label="Status: Eligible but NotProvSvcs",
 
 type_menu.add_separator()
 
-# --- Request: Exit
+# --- Request: Exit Student
 type_menu.add_command(label="Exit 70",
                       command=lambda:click_exit_student("Exit 70", w.purple))
 
 
 type_menu.add_separator()
 
-# Menu: Follow Up
+# === Menu: Follow Up ===
 follow_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Follow Up", menu=follow_menu)
 follow_menu.add_command(label="Unsigned IEP",
@@ -120,7 +128,7 @@ follow_menu.add_command(label="Unaffirmed IEP",
 follow_menu.add_command(label="Unaffirmed Amendment",
                         command=lambda: click_follow_up("Unaffirmed", "Amendment"))
 
-# Menu: Meeting Alerts
+# === Menu: Meeting Alerts ===
 alert_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Meeting Alerts", menu=alert_menu)
 alert_menu.add_command(label="Under construction!")

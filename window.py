@@ -1,10 +1,18 @@
+# FILE: window.py
+"""
+- Set up the Tkinter window
+- Options for colors
+- Create a frame for each menu option
+- Secondary functions used by each menu option's primary function
+"""
+
 from tkinter import *
 
 root = Tk()
-root.iconbitmap(r"images\bunny_face.ico")
-root.title("SpEd Message Builder")
+root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
+root.title("SpEd Message Builder") # Text to display on the title bar
 
-# Window
+# Window geometry
 window_width = 400
 window_height = 500
 geo = str(window_width) + "x" + str(window_height)
@@ -27,7 +35,8 @@ f_index.pack()
 l.pack()
 
 """
-FRAMES
+COLORS
+- for backgrounds, etc
 """
 red = "#f4cccc"
 orange = "#fce5cd"
@@ -35,11 +44,16 @@ yellow = "#fff2cc"
 green = "#d9ead3"
 blue = "#c9daf8"
 purple = "#d9d2e9"
+pink = "#ead1dc"
 
+"""
+FRAMES
+"""
 f_record_change = Frame(root)
 f_add_student = Frame(root)
 f_status_change = Frame(root)
 f_exit_student = Frame(root)
+f_follow_up = Frame(root)
 
 """
 FN PURPOSE: Hide all frames to make the window clean
@@ -55,7 +69,17 @@ def hide_all_frames():
     f_exit_student.place_forget()
 
     f_follow_up.place_forget()
-# END OF FN: hide_all_frames
+# END OF FN hide_all_frames
+
+"""
+===================
+Functions for
+- Record Change
+- Add Student
+- Status Change
+- Exit Student
+===================
+"""
 
 # STAFF ROLE DROPDOWN OPTIONS
 staff_roles = ["...",
@@ -107,7 +131,7 @@ def input_request_details(fields_list, role_options, input_frame, bg_color):
     l = Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+5, column=0)
     fields_list[4].grid(row=r+6, column=0)
-# END OF FN: input_reqest_details
+# END OF FN input_reqest_details
 
 """
 FN PURPOSE: Set up frames.
@@ -116,7 +140,7 @@ def configure_frames(frame_list, bg_color):
     for frame in frame_list:
         frame["bg"] = bg_color
     frame_list[0].pack(anchor=W, padx=10, pady=5)
-# END OF FN: configure_frames
+# END OF FN configure_frames
 
 """
 FN PURPOSE: Set up entry boxes.
@@ -125,7 +149,7 @@ entry_width_size = 20 # Size of an entry box
 def configure_entries(entry_list, width):
     for entry in entry_list:
         entry.config(width=width)
-# END OF FN: configure_entries
+# END OF FN configure_entries
 
 """
 FN PURPOSE: Reset one entry box.
@@ -133,7 +157,7 @@ FN PURPOSE: Reset one entry box.
 def reset_entry(entry_name):
     entry_name.delete(0,"end")
     entry_name.insert(0, "")
-# END OF FN: reset_entry
+# END OF FN reset_entry
 
 """
 FN PURPOSE: Reset multiple entry boxes.
@@ -142,7 +166,7 @@ def clear_fields(fields_list):
     for i in range(1, 4+1):
         reset_entry(fields_list[i])
     fields_list[5].set("...")
-# END OF FN: clear_fields
+# END OF FN clear_fields
 
 """
 FN PURPOSE: Destroy the widgets for this menu option.
@@ -153,7 +177,7 @@ def clear_frames(frame_list):
     hide_all_frames()
     f_index.pack()
     l.pack()
-# END OF FN: clear_frames
+# END OF FN clear_frames
 
 """
 FN PURPOSE: Write a note that describes the request,
@@ -185,7 +209,7 @@ def write_note(field_list, actions, note_frame, bg_color):
         textbox.insert("end", actions[i])
         if (i > 0 and i < len(actions)-1):
             textbox.insert("end", "\n")
-# END OF FN: write_note
+# END OF FN write_note
 
 """
 FN PURPOSE: Make a button.
@@ -197,7 +221,7 @@ def make_write_button(write_button, field_list, actions,
     write_button["command"] = lambda: write_note(field_list, actions,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
-# END OF FN: make_write_button
+# END OF FN make_write_button
 
 """
 FN PURPOSE: Make a button.
@@ -210,14 +234,14 @@ def make_clearFrames_button(clearRequest_button, frame_list, bg_color):
     l = Label(frame_list[0], bg=bg_color)
     l["text"] = clearRequest_label_text
     l.grid(row=0, column=1, sticky=W)
-# END OF FN: make_clearFrames_button
+# END OF FN make_clearFrames_button
 
 """
-FOLLOW UP MENU
+===================
+Functions for
+- Follow Ups
+===================
 """
-# Follow Up
-pink = "#ead1dc"
-f_follow_up = Frame(root, bg=pink)
 
 """
 FN PURPOSE: Get user input about a follow up.
@@ -258,7 +282,7 @@ def input_follow_details(fields_list, input_frame, bg_color):
     l = Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+5, column=0)
     fields_list[6].grid(row=r+6, column=0)
-# END OF FN: input_follow_details
+# END OF FN input_follow_details
 
 """
 FN PURPOSE: Write a note that describes the follow up.
@@ -294,7 +318,7 @@ def write_message(field_list, note_frame, bg_color):
 
     textbox.insert("end", line)
 
-# END OF FN: write_message
+# END OF FN write_message
 
 """
 FN PURPOSE: Make a button for follow up message.
@@ -306,4 +330,6 @@ def make_follow_write_button(write_button, field_list,
     write_button["command"] = lambda: write_message(field_list,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
-# END OF FN: make_follow_write_button
+# END OF FN make_follow_write_button
+
+# EOF window.py
