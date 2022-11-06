@@ -96,6 +96,24 @@ Functions for
 ===================
 """
 
+"""
+FN PURPOSE: Set up frames.
+"""
+def configure_frames(frame_list, bg_color):
+    for frame in frame_list:
+        frame["bg"] = bg_color
+    frame_list[0].pack(anchor=W, padx=10, pady=5)
+# END OF FN configure_frames
+
+"""
+FN PURPOSE: Set up entry boxes.
+"""
+entry_width_size = 20 # Size of an entry box
+def configure_entries(entry_list, width):
+    for entry in entry_list:
+        entry.config(width=width)
+# END OF FN configure_entries
+
 # STAFF ROLE DROPDOWN OPTIONS
 staff_roles = [
     "...",
@@ -159,24 +177,6 @@ def input_dropdown(field, option_list, option_dropdown, r, c):
 # END OF FN input_dropdown
 
 """
-FN PURPOSE: Set up frames.
-"""
-def configure_frames(frame_list, bg_color):
-    for frame in frame_list:
-        frame["bg"] = bg_color
-    frame_list[0].pack(anchor=W, padx=10, pady=5)
-# END OF FN configure_frames
-
-"""
-FN PURPOSE: Set up entry boxes.
-"""
-entry_width_size = 20 # Size of an entry box
-def configure_entries(entry_list, width):
-    for entry in entry_list:
-        entry.config(width=width)
-# END OF FN configure_entries
-
-"""
 FN PURPOSE: Reset one entry box.
 """
 def reset_entry(entry_name):
@@ -205,9 +205,23 @@ def clear_frames(frame_list):
 # END OF FN clear_frames
 
 """
+FN PURPOSE: Make a button.
+When pressed, the widgets for this menu option will be destroyed.
+"""
+def make_clearFrames_button(clearRequest_button, frame_list, bg_color):
+    clearRequest_button["text"] = clearRequest_button_text
+    clearRequest_button["command"] = lambda: clear_frames(frame_list)
+    clearRequest_button.grid(row=0, column=0, sticky=W)
+    l = Label(frame_list[0], bg=bg_color)
+    l["text"] = clearRequest_label_text
+    l.grid(row=0, column=1, sticky=W)
+# END OF FN make_clearFrames_button
+
+"""
 FN PURPOSE: Write a note that describes the request,
 the actions taken to complete the request,
 and any other comments or concerns.
+- For record changes
 """
 def write_note_record_change(field_list, actions, note_frame, bg_color, change_requested):
     note_frame.pack()
@@ -239,6 +253,7 @@ def write_note_record_change(field_list, actions, note_frame, bg_color, change_r
 """
 FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
+- For record changes
 """
 def make_write_button_record_change(write_button, field_list, actions,
     frame_list, bg_color, change_requested):
@@ -252,6 +267,7 @@ def make_write_button_record_change(write_button, field_list, actions,
 FN PURPOSE: Write a note that describes the request,
 the actions taken to complete the request,
 and any other comments or concerns.
+- For status changes, adding a student, and exiting a student
 """
 def write_note(field_list, actions, note_frame, bg_color):
     note_frame.pack()
@@ -283,6 +299,7 @@ def write_note(field_list, actions, note_frame, bg_color):
 """
 FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
+- For status changes, adding a student, and exiting a student.
 """
 def make_write_button(write_button, field_list, actions,
     frame_list, bg_color):
@@ -291,19 +308,6 @@ def make_write_button(write_button, field_list, actions,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button
-
-"""
-FN PURPOSE: Make a button.
-When pressed, the widgets for this menu option will be destroyed.
-"""
-def make_clearFrames_button(clearRequest_button, frame_list, bg_color):
-    clearRequest_button["text"] = clearRequest_button_text
-    clearRequest_button["command"] = lambda: clear_frames(frame_list)
-    clearRequest_button.grid(row=0, column=0, sticky=W)
-    l = Label(frame_list[0], bg=bg_color)
-    l["text"] = clearRequest_label_text
-    l.grid(row=0, column=1, sticky=W)
-# END OF FN make_clearFrames_button
 
 """
 ===================
