@@ -18,6 +18,7 @@ def exit_student(req_type, bg_color):
     input_frame = w.Frame(request_frame)
     note_frame = w.Frame(request_frame)
 
+    # CONFIGURE THE FRAMES
     frame_list = []
     frame_list.append(close_frame)
     frame_list.append(input_frame)
@@ -52,10 +53,53 @@ def exit_student(req_type, bg_color):
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
-    if req_type == "Exit 70":
+    if req_type == "Exit 70\nNo longer eligible":
         actions = [
             "Request completed.",
             "\nParent signed \"no longer eligible\" on "
+        ]
+    
+    elif req_type == "Exit 74\nDrop Out/Not known to be continuing":
+        actions = [
+            "Request completed.",
+            "\n"
+        ]
+
+    elif req_type == "Exit 76\nTransfer, known to be continuing":
+        actions = [
+            "Request completed.",
+            "\nEUSD Exit Date: "
+        ]
+
+    elif req_type == "Exit 77\nDeceased":
+        actions = [
+            "Request completed.",
+            "\n"
+        ]
+
+    elif req_type == "Exit 78\nParent Withdrawal":
+        actions = [
+            "Request completed.",
+            "\nParent withdrew student from services on ",
+            "Document on Current IEP: ",
+            "Comment on Current IEP: ",
+            
+            "\nSCHOOL AGE",
+            "Assessment before exiting: ",
+            "Date of parent consent to initial eval: - removed",
+            "Do Not Report: -"
+        ]
+
+    elif req_type == "Exit 84\nPart C to B No parental consent":
+        actions = [
+            "Request completed.",
+            "\n"
+        ]
+
+    elif req_type == "Exit 85\nExited SPED Out-of-State":
+        actions = [
+            "Request completed.",
+            "\n"
         ]
     
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX

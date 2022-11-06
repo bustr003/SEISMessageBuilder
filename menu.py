@@ -98,7 +98,7 @@ type_menu.add_separator()
 type_menu.add_command(label="Status: Make Eligible",
                       command=lambda:click_status_change("Status: Make Eligible", w.green))
 
-type_menu.add_command(label="Status: Make DNQ",
+type_menu.add_command(label="Status: Make Ineligible",
                       command=lambda:click_status_change("Status: Make DNQ", w.red))
 
 type_menu.add_command(label="Status: AP Declined",
@@ -111,8 +111,25 @@ type_menu.add_separator()
 
 # --- Request: Exit Student
 type_menu.add_command(label="Exit 70",
-                      command=lambda:click_exit_student("Exit 70", w.purple))
+                      command=lambda:click_exit_student("Exit 70\nNo longer eligible", w.purple))
 
+type_menu.add_command(label="Exit 74",
+                      command=lambda:click_exit_student("Exit 74\nDrop Out/Not known to be continuing", w.purple))
+
+type_menu.add_command(label="Exit 76",
+                      command=lambda:click_exit_student("Exit 76\nTransfer, known to be continuing", w.purple))
+
+type_menu.add_command(label="Exit 77",
+                      command=lambda:click_exit_student("Exit 77\nDeceased", w.purple))
+
+type_menu.add_command(label="Exit 78",
+                      command=lambda:click_exit_student("Exit 78\nParent Withdrawal", w.purple))
+
+type_menu.add_command(label="Exit 84",
+                      command=lambda:click_exit_student("Exit 84\nPart C to B No parental consent", w.purple))
+
+type_menu.add_command(label="Exit 85",
+                      command=lambda:click_exit_student("Exit 85\nExited SPED Out-of-State", w.purple))           
 
 type_menu.add_separator()
 
