@@ -58,10 +58,10 @@ def status_change(req_type, bg_color):
             "SpEd Type: - to be added",
             "% OUT of regular class: ",
             "Team Meeting Notes: ",
+            "Parent signed \"I agree\" on ",
             "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
-            "Parent signed \"I agree\" on ",
             "Status changed from Pending to Eligible."
         ]
     elif req_type == "Status: Make DNQ":
