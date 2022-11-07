@@ -56,10 +56,10 @@ def status_change(req_type, bg_color):
         actions = [
             "Request completed.",
             "SpEd Type: - to be added",
-            "% OUT of regular class: ",
-            "Team Meeting Notes: ",
+            "% IN regular class: ",
+            "\nTeam Meeting Notes: ",
             "Parent signed \"I agree\" on ",
-            "Parent consent date for initial eval: ",
+            "\nParent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
             "Status changed from Pending to Eligible."
