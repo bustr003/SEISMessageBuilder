@@ -54,16 +54,17 @@ def add_student(req_type, bg_color):
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
-        "PowerSchool Record: ",
+        "SIS record: ",
         "SEIS record: ",
         "SSID: ",
-        "EUSD Start Date: ",
+        "LEA Start Date: ",
         "Grade: ",
         "Middle Name: ",
         "School of Residence: ",
         "School of Attendance: ",
 
-        "\nRe-activated the SEIS record.",
+        "\nChanged Plan Type to 300 - Pending Initial Evaluation. -",
+        "Re-activated the SEIS record.",
         "Status changed to Pending.",
         "Directed the requester to update fields 26, 27, 28, 29, 14.20, 14.27.",
         "Directed the requester to NOT change Field 14.27 if it is already populated."
