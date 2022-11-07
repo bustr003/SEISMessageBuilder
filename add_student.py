@@ -57,13 +57,16 @@ def add_student(req_type, bg_color):
         "PowerSchool Record: ",
         "SEIS record: ",
         "SSID: ",
-        "District Student ID: ",
         "EUSD Start Date: ",
         "Grade: ",
         "Middle Name: ",
         "School of Residence: ",
         "School of Attendance: ",
-        "Case Manager: "
+
+        "\nRe-activated the SEIS record.",
+        "Status changed to Pending.",
+        "Directed the requester to update fields 26, 27, 28, 29, 14.20, 14.27.",
+        "Directed the requester to NOT change Field 14.27 if it is already populated."
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
