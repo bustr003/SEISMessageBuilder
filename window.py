@@ -7,6 +7,7 @@
 """
 
 from tkinter import *
+from tkinter import ttk
 
 root = Tk()
 root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
