@@ -56,6 +56,7 @@ green = "#d9ead3"
 blue = "#c9daf8"
 purple = "#d9d2e9"
 pink = "#ead1dc"
+dark_red = "#a61c00"
 
 """
 FRAMES
@@ -231,10 +232,12 @@ def write_note(field_list, actions, note_frame, bg_color):
     l = Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
     l.grid(row=0, column=0, columnspan=2)
 
+    # BUTTON TO RESET THE FIELDS
     clearFields_button = Button(note_frame, text="Clear Fields")
     clearFields_button["command"] = lambda: clear_fields(field_list)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
+    # TEXTBOX
     textbox = Text(note_frame, wrap="word")
     textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
