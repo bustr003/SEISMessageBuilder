@@ -75,13 +75,18 @@ def status_change(req_type, bg_color):
     elif req_type == "Status: Assessment Plan Declined":
         actions = [
             "Request completed.",
-            "Parent signed \"I do not consent to the the proposed assessment\" on ",
+            "\nParent signed \"I do not consent to the the proposed assessment\" on ",
+            
+            "\nSSID: ",
             "CALPADS \"Pending\" Transaction: ",
-            "Parent consent date for initial eval: - removed",
+
+            "\nParent consent date for initial eval: - removed",
             "Meeting Type: 30 - removed -",
             "Plan Type: 300 - removed -",
-            "Do Not Report: -",
-            "Status changed from Pending to Not Providing Services."
+            
+            "\nDo Not Report: -",
+            
+            "\nStatus changed from Pending to Not Providing Services."
         ]
     elif req_type == "Status: Eligible but NotProvSvcs":
         actions = [
