@@ -68,7 +68,7 @@ def status_change(req_type, bg_color):
         actions = [
             "Request completed.",
             "Parent Consent Date: ",
-            "Plan Type: ",
+            "Plan Type: 900 -",
             "Parent signed \"not eligible\" on ",
             "Status changed from Pending to Ineligible."
         ]
