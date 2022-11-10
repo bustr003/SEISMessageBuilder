@@ -19,7 +19,7 @@ def input_follow_details(fields_list, input_frame, bg_color):
     l.grid(row=r, column=0, columnspan=2)
 
     # USER INPUT
-    text = "Case Manager"
+    text = "Case Manager FN"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+1, column=0)
     fields_list[2].grid(row=r+2,column=0)
@@ -29,17 +29,17 @@ def input_follow_details(fields_list, input_frame, bg_color):
     l.grid(row=r+1, column=1)
     fields_list[3].grid(row=r+2, column=1)
 
-    text = "Student LN"
+    text = "SEIS ID"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=0)
     fields_list[4].grid(row=r+4, column=0)
 
-    text = "Student FN"
+    text = "SSID"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=1)
     fields_list[5].grid(row=r+4, column=1)
 
-    text = "SEIS ID"
+    text = "Student Name"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+5, column=0)
     fields_list[6].grid(row=r+6, column=0)
@@ -79,8 +79,9 @@ def write_message(field_list, note_frame, bg_color):
     textbox.insert("end", line)
 
     line = "I noticed that you have an " + field_list[0] + " " + field_list [1]
-    line += " for " + field_list[5].get().strip() + " " + field_list[4].get().strip()
-    line += ", SEIS ID " + field_list[6].get().strip() + "."
+    line += " for this student:\n" + field_list[6].get().strip()
+    line += "\nSEIS ID: " + field_list[4].get().strip()
+    line += "\nSSID: " + field_list[5].get().strip()
     line += "\n\nThe " + field_list[1] + " Date is " + field_list[3].get().strip() + "."
     line += "\n\n" + action + "\n"
 
@@ -123,21 +124,21 @@ def follow_up(follow_type, follow_item, bg_color):
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
-    cm_name = w.Entry(input_frame)
+    cm_FN = w.Entry(input_frame)
     date = w.Entry(input_frame)
-    stu_LN = w.Entry(input_frame)
-    stu_FN = w.Entry(input_frame)
     seis_id = w.Entry(input_frame)
+    ssid = w.Entry(input_frame)
+    stu_name = w.Entry(input_frame)
 
     # CREATE THE LIST OF FIELDS
     field_list = []
     field_list.append(follow_type) # 0
     field_list.append(follow_item) # 1
-    field_list.append(cm_name) # 2
+    field_list.append(cm_FN) # 2
     field_list.append(date) # 3
-    field_list.append(stu_LN) # 4
-    field_list.append(stu_FN) # 5
-    field_list.append(seis_id) # 6
+    field_list.append(seis_id) # 4
+    field_list.append(ssid) # 5
+    field_list.append(stu_name) # 6
 
     entry_list = []
     for i in range(2,7):
