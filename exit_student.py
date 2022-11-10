@@ -68,7 +68,7 @@ def exit_student(req_type, bg_color):
     elif req_type == "Exit 76\nTransfer, known to be continuing":
         actions = [
             "Request completed.",
-            "EUSD Exit Date: "
+            "EUSD Exit Date "
         ]
 
     elif req_type == "Exit 77\nDeceased":
