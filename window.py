@@ -66,6 +66,7 @@ f_add_student = Frame(root)
 f_status_change = Frame(root)
 f_exit_student = Frame(root)
 f_follow_up = Frame(root)
+f_signature = Frame(root)
 f_glossary = Frame(root)
 
 window_frames = []
@@ -74,6 +75,7 @@ window_frames.append(f_add_student)
 window_frames.append(f_status_change)
 window_frames.append(f_exit_student)
 window_frames.append(f_follow_up)
+window_frames.append(f_signature)
 window_frames.append(f_glossary)
 
 """
@@ -113,7 +115,10 @@ FN PURPOSE: Set up entry boxes.
 entry_width_size = 20 # Size of an entry box
 def configure_entries(entry_list, width):
     for entry in entry_list:
-        entry.config(width=width)
+        if entry.get() == "SEIS_ID SSID LAST_NAME, FIRST NAME":
+            entry.config(width=60)
+        else:
+            entry.config(width=width)
 # END OF FN configure_entries
 
 # STAFF ROLE DROPDOWN OPTIONS

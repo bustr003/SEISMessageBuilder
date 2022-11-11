@@ -36,7 +36,7 @@ import add_student # Request Type: Add Student
 import status_change # Request Type: Eligibility Change
 import exit_student # Request Type: Exit
 
-import follow_up # Unaffirmed/Unsigned IEP/Amendment
+import follow_up # Emails
 
 import glossary # Terms and their definitions
 
@@ -81,6 +81,11 @@ def click_follow_up(follow_type, follow_item):
     w.hide_all_frames()
     w.f_follow_up.place(relwidth=r_width, relheight=r_height, rely=r_y)
     follow_up.follow_up(follow_type, follow_item, w.pink)
+
+def click_signature(status):
+    w.hide_all_frames()
+    w.f_signature.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    follow_up.signature(status, w.pink)
 
 # Resources
 def click_glossary(bg_color):
@@ -164,6 +169,15 @@ follow_menu.add_command(label="Unaffirmed Amendment",
 
 follow_menu.add_separator()
 
+# --- E-Signature Packages  
+follow_menu.add_command(label="Signature: Ready",
+                        command=lambda: click_signature("Ready"))
+
+follow_menu.add_command(label="Signature: Expired",
+                        command=lambda: click_signature("Expired"))
+
+follow_menu.add_separator()
+
 # --- Meeting Alerts
 def open_popup():
    top = w.Toplevel(w.root)
@@ -177,10 +191,10 @@ def open_popup():
 follow_menu.add_command(label="Meeting Alerts",
                         command=open_popup)
 
-# === Menu: Help ===
-help_menu = w.Menu(main_menu)
-main_menu.add_cascade(label="Help", menu=help_menu)
-help_menu.add_command(label="Glossary",
+# === Menu: Resources ===
+resource_menu = w.Menu(main_menu)
+main_menu.add_cascade(label="Resources", menu=resource_menu)
+resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
 
 w.root.mainloop()
