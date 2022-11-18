@@ -80,13 +80,16 @@ def exit_student(req_type, bg_color):
     elif req_type == "Exit 78\nParent Withdrawal":
         actions = [
             "Request completed.",
-            "Parent withdrew student from services on ",
-            "Document on Current IEP: ",
-            "Comment on Current IEP: ",
+
+            "\nCURRENT IEP ATTACHMENT",
+            "Revocation Letter: ",
+
+            "\nCURRENT IEP COMMENT",
+            "Parent would like to withdraw the student from services.",
+            "Parent revoked consent on <date>.",
+            "The Revocation Letter was sent by <name>, <role>, on <date>.",
             
             "\nSCHOOL AGE",
-            "Assessment before exiting: ",
-            "Date of parent consent to initial eval: - removed",
             "Do Not Report: -"
         ]
 

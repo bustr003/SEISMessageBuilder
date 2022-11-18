@@ -41,7 +41,7 @@ def write_note(field_list, actions, note_frame, bg_color):
 
     for i in range(0, len(actions)):
         textbox.insert("end", actions[i])
-        if (i < len(actions)-1):
+        if (i < len(actions)):
             textbox.insert("end", "\n")
 # END OF FN write_note_record_change
 
@@ -126,8 +126,7 @@ def record_change(req_type, bg_color):
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
-        "Request completed.",
-        ""
+        "Request completed."
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
