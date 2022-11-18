@@ -9,7 +9,7 @@ Icon image (bunny) created by Neala Mendoza.
 
 ---
 
-#TO DO
+# TO DO
 - Add the feature that removes all children, instead of needing to press x
 - Add a feature for duplicate records (maybe just Glossary)
 - Add APE and DHH to staff roles
