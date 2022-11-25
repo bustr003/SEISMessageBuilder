@@ -42,7 +42,7 @@ def add_student(req_type, bg_color):
     field_list.append(requester_role) # 5
 
     entry_list = []
-    for i in range(1,5):
+    for i in range(1,4):
         entry_list.append(field_list[i])
 
     w.configure_entries(entry_list, w.entry_width_size)
