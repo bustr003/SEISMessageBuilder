@@ -112,7 +112,10 @@ def configure_frames(frame_list, bg_color):
 """
 FN PURPOSE: Set up entry boxes.
 """
-entry_width_size = 20 # Size of an entry box
+entry_width_size = 20 # Width of an entry box
+dropdown_width = entry_width_size - 6 # Width of a dropdown menu
+combobox_width = entry_width_size - 3 # Width of a combo box
+
 def configure_entries(entry_list, width):
     for entry in entry_list:
         if entry.get() == "SEIS_ID SSID LAST_NAME, FIRST NAME":

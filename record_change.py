@@ -88,8 +88,7 @@ def record_change(req_type, bg_color):
     requester_comment = w.Entry(input_frame)
 
     requester_role = w.StringVar()
-    role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
-
+ 
     # CREATE THE LIST OF FIELDS
     field_list = []
     field_list.append(req_type) # 0
@@ -97,10 +96,13 @@ def record_change(req_type, bg_color):
     field_list.append(stu_FN) # 2
     field_list.append(requester_name) # 3
     field_list.append(requester_comment) # 4
+
+    selected_role = w.StringVar()
+    selected_role.set("Select Role")
     field_list.append(requester_role) # 5
 
     entry_list = []
-    for i in range(1,5):
+    for i in range(1,4):
         entry_list.append(field_list[i])
 
     w.configure_entries(entry_list, w.entry_width_size)
@@ -118,10 +120,26 @@ def record_change(req_type, bg_color):
 
     record_change_type = w.StringVar()
     record_change_dropdown = w.OptionMenu(input_frame, record_change_type, *record_change_types)
+    record_change_dropdown.config(width=w.dropdown_width)
     w.input_dropdown(record_change_type, record_change_types, record_change_dropdown, 8, 0)
     field_list.append(record_change_type) # 6
     
     # USER INPUT FOR REQUEST DETAILS
+    # When a combo box option is selected or entered, update the field value.
+    def set_result(event):
+        selected_role = role_options.get().strip()
+        field_list[5].set(selected_role)
+
+        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
+        l = w.Label(input_frame, text=text, bg=bg_color, width=w.combobox_width)
+        l.grid(row=3, column=1)
+    
+    # COMBOBOX TO SELECT A TERM
+    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.entry_width_size-3)
+    role_options.bind("<<ComboboxSelected>>", set_result)
+    role_options.bind("<Return>", set_result)
+    role_options.grid(row=8, column=0)
+
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
@@ -132,7 +150,7 @@ def record_change(req_type, bg_color):
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
     make_write_button(write_button, field_list, actions,
-    frame_list, bg_color)#, record_change_type)
+    frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     clearFrames_button = w.Button(close_frame)
