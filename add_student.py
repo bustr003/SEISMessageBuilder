@@ -31,8 +31,7 @@ def add_student(req_type, bg_color):
     requester_comment = w.Entry(input_frame)
 
     requester_role = w.StringVar()
-    role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
-
+    
     # CREATE THE LIST OF FIELDS
     field_list = []
     field_list.append(req_type) # 0
@@ -49,6 +48,21 @@ def add_student(req_type, bg_color):
     w.configure_entries(entry_list, w.entry_width_size)
 
     # USER INPUT FOR REQUEST DETAILS
+    # When a combo box option is selected or entered, update the field value.
+    def set_result(event):
+        selected_role = role_options.get().strip()
+        field_list[5].set(selected_role)
+
+        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
+        l = w.Label(input_frame, text=text, bg=bg_color)
+        l.grid(row=3, column=1)
+    
+    # COMBOBOX TO SELECT A TERM
+    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=15)
+    role_options.bind("<<ComboboxSelected>>", set_result)
+    role_options.bind("<Return>", set_result)
+    role_options.grid(row=8, column=0)
+    
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE

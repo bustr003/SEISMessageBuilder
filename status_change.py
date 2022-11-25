@@ -31,8 +31,7 @@ def status_change(req_type, bg_color):
     requester_comment = w.Entry(input_frame)
 
     requester_role = w.StringVar()
-    #role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
-
+    
     # CREATE THE LIST OF FIELDS
     field_list = []
     field_list.append(req_type) # 0
@@ -45,7 +44,14 @@ def status_change(req_type, bg_color):
     selected_role.set("Select Role")
     field_list.append(requester_role) # 5
 
-    # When a dropdown option is selected, update the field value.
+    entry_list = []
+    for i in range(1,4):
+        entry_list.append(field_list[i])
+
+    w.configure_entries(entry_list, w.entry_width_size)
+
+    # USER INPUT FOR REQUEST DETAILS
+    # When a combo box option is selected or entered, update the field value.
     def set_result(event):
         selected_role = role_options.get().strip()
         field_list[5].set(selected_role)
@@ -59,14 +65,7 @@ def status_change(req_type, bg_color):
     role_options.bind("<<ComboboxSelected>>", set_result)
     role_options.bind("<Return>", set_result)
     role_options.grid(row=8, column=0)
-
-    entry_list = []
-    for i in range(1,4):
-        entry_list.append(field_list[i])
-
-    w.configure_entries(entry_list, w.entry_width_size)
-
-    # USER INPUT FOR REQUEST DETAILS
+    
     w.input_request_details(field_list, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
