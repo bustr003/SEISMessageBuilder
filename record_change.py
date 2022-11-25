@@ -120,22 +120,23 @@ def record_change(req_type, bg_color):
 
     record_change_type = w.StringVar()
     record_change_dropdown = w.OptionMenu(input_frame, record_change_type, *record_change_types)
-    record_change_dropdown.config(width=w.dropdown_width)
+    record_change_dropdown.config(width=w.dropdown_width, wrap=w.wrap_units)
     w.input_dropdown(record_change_type, record_change_types, record_change_dropdown, 8, 0)
     field_list.append(record_change_type) # 6
     
     # USER INPUT FOR REQUEST DETAILS
+
     # When a combo box option is selected or entered, update the field value.
     def set_result(event):
         selected_role = role_options.get().strip()
         field_list[5].set(selected_role)
 
         text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
-        l = w.Label(input_frame, text=text, bg=bg_color, width=w.combobox_width)
+        l = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
         l.grid(row=3, column=1)
     
     # COMBOBOX TO SELECT A TERM
-    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.entry_width_size-3)
+    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
     role_options.bind("<<ComboboxSelected>>", set_result)
     role_options.bind("<Return>", set_result)
     role_options.grid(row=8, column=0)

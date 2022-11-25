@@ -54,11 +54,11 @@ def add_student(req_type, bg_color):
         field_list[5].set(selected_role)
 
         text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
-        l = w.Label(input_frame, text=text, bg=bg_color)
+        l = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
         l.grid(row=3, column=1)
     
     # COMBOBOX TO SELECT A TERM
-    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=15)
+    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
     role_options.bind("<<ComboboxSelected>>", set_result)
     role_options.bind("<Return>", set_result)
     role_options.grid(row=8, column=0)
