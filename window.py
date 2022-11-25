@@ -164,7 +164,7 @@ def input_request_details(fields_list, role_options, input_frame, bg_color):
     l.grid(row=r+3, column=0)
     fields_list[3].grid(row=r+4, column=0)
 
-    text = "Requester Role"
+    text = "Requester Role\n(for custom, press Enter)"
     l = Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=1)
     fields_list[5].set(staff_roles[0])
@@ -234,10 +234,6 @@ and any other comments or concerns.
 def write_note(field_list, actions, note_frame, bg_color):
     note_frame.pack()
 
-    header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
-    l = Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
-    l.grid(row=0, column=0, columnspan=2)
-
     # BUTTON TO RESET THE FIELDS
     clearFields_button = Button(note_frame, text="Clear Fields")
     clearFields_button["command"] = lambda: clear_fields(field_list)
@@ -247,6 +243,10 @@ def write_note(field_list, actions, note_frame, bg_color):
     textbox = Text(note_frame, wrap="word")
     textbox.config(width=textbox_width, height=textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
+
+    header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
+    l = Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
+    l.grid(row=0, column=0, columnspan=2)
 
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[0] + "\n"
     textbox.insert("end", line)
@@ -268,8 +268,7 @@ When pressed, put a Note template in an editable textbox.
 def make_write_button(write_button, field_list, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, actions,
-    frame_list[2], bg_color)
+    write_button["command"] = lambda: write_note(field_list, actions, frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button
 

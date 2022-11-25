@@ -19,9 +19,9 @@ def status_change(req_type, bg_color):
     note_frame = w.Frame(page_frame)
 
     frame_list = []
-    frame_list.append(close_frame)
-    frame_list.append(input_frame)
-    frame_list.append(note_frame)
+    frame_list.append(close_frame) # 0
+    frame_list.append(input_frame) # 1
+    frame_list.append(note_frame) # 2
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
@@ -31,7 +31,7 @@ def status_change(req_type, bg_color):
     requester_comment = w.Entry(input_frame)
 
     requester_role = w.StringVar()
-    role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
+    #role_options = w.OptionMenu(input_frame, requester_role, *w.staff_roles)
 
     # CREATE THE LIST OF FIELDS
     field_list = []
@@ -40,10 +40,28 @@ def status_change(req_type, bg_color):
     field_list.append(stu_FN) # 2
     field_list.append(requester_name) # 3
     field_list.append(requester_comment) # 4
+
+    selected_role = w.StringVar()
+    selected_role.set("Select Role")
     field_list.append(requester_role) # 5
 
+    # When a dropdown option is selected, update the field value.
+    def set_result(event):
+        selected_role = role_options.get().strip()
+        field_list[5].set(selected_role)
+
+        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
+        l = w.Label(input_frame, text=text, bg=bg_color)
+        l.grid(row=3, column=1)
+    
+    # COMBOBOX TO SELECT A TERM
+    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=15)
+    role_options.bind("<<ComboboxSelected>>", set_result)
+    role_options.bind("<Return>", set_result)
+    role_options.grid(row=8, column=0)
+
     entry_list = []
-    for i in range(1,5):
+    for i in range(1,4):
         entry_list.append(field_list[i])
 
     w.configure_entries(entry_list, w.entry_width_size)
@@ -96,7 +114,6 @@ def status_change(req_type, bg_color):
             "Plan Type: 800 -",
             "Status changed from Pending to Not Providing Services."
         ]
-    
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
