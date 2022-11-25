@@ -255,7 +255,10 @@ def write_note(field_list, actions, note_frame, bg_color):
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[0] + "\n"
     textbox.insert("end", line)
 
-    line = "\"" + field_list[4].get().strip() + "\"\n\n"
+    if field_list[4].get().strip() != "":
+        line = "\"" + field_list[4].get().strip() + "\"\n\n"
+    else:
+        line = "\n"
     textbox.insert("end", line)
 
     for i in range(0, len(actions)):
