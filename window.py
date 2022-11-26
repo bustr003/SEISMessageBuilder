@@ -134,7 +134,6 @@ def configure_entries(entry_list, width):
 
 # STAFF ROLE DROPDOWN OPTIONS
 staff_roles = [
-    "...",
     "Site",
     "Psych",
     "Special Ed. Teacher",
@@ -142,7 +141,7 @@ staff_roles = [
     "Speech-Language Pathologist with Valid Credential",
     "Occupational Therapist",
     "Behavior Intervention Specialist",
-    "Physical Education Teacher",
+    "Adapted Physical Education Teacher",
     "General Education Teacher",
     "Teacher of Deaf/Hard of Hearing"
 ]
