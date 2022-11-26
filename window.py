@@ -27,23 +27,27 @@ textbox_height = 18
 
 # Values for Clear button
 go_home_button_text = "Home"
-go_home_label_text = ""
+go_home_label_text = "Home"
 
 # Index Page
-index_text = "\nWelcome to the Special Education Message Builder!"
-index_text += "\nUse this tool to generate messages using templates."
-index_text += "\n\nRequest:\nAn admin note for a SEIS request"
-index_text += "\n\nFollow Up:\nA message for unaffirmed/unsigned IEPs/amendments"
-index_text += "\n\nMeeting Alert:\nA message for upcoming/overdue meetings"
-
 f_index = Frame(root)
-l = Label(f_index, text=index_text, font=("Calibri", 12))
 f_index.pack()
-l.pack()
 
 index_image = PhotoImage(file = r"images\bunny_pixel.png")
-l = Label(image=index_image)
-l.pack(pady=10)
+l = Label(f_index, image=index_image)
+l.grid(row=0, column= 0, pady=10)
+
+last_updated = "Last updated 11/26/2022 (at Home)"
+
+index_text = "\nWelcome to the Special Education Message Builder!"
+index_text += "\n" + last_updated
+
+index_text += "\n\nRequest\n- Admin note for SEIS requests."
+index_text += "\n\nFollow Up\n- Message to follow up with providers"
+index_text += "\n\nResources\n- Glossary\n- Handle duplicate records"
+
+l = Label(f_index, text=index_text, font=("Calibri", 12), justify="left")
+l.grid(row=1, column=0)#, sticky=W)
 
 """
 COLORS
@@ -225,7 +229,6 @@ def go_home(frame_list):
         frame.destroy()
     hide_all_frames()
     f_index.pack()
-    l.pack()
 # END OF FN go_home
 
 """
@@ -235,10 +238,10 @@ When pressed, the widgets for this menu option will be destroyed.
 def make_go_home_button(go_home_button, frame_list, bg_color):
     go_home_button["text"] = go_home_button_text
     go_home_button["command"] = lambda: go_home(frame_list)
-    go_home_button.grid(row=0, column=0, sticky=W)
+    go_home_button.grid(row=0, column=0)#, sticky=W)
     l = Label(frame_list[0], bg=bg_color)
     l["text"] = go_home_label_text
-    l.grid(row=0, column=1, sticky=W)
+    l.grid(row=0, column=1)#, sticky=W)
 # END OF FN make_go_home_button
 
 """
