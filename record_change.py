@@ -12,7 +12,7 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For record changes
 """
-def write_note(field_list, actions, note_frame, bg_color):
+def write_note(field_list, combobox, actions, note_frame, bg_color):
     note_frame.pack()
 
     header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
@@ -20,12 +20,13 @@ def write_note(field_list, actions, note_frame, bg_color):
     l.grid(row=0, column=0, columnspan=2)
 
     # BUTTON TO CLEAR THE FIELDS
-    def clear_fields(field_list):
+    def clear_fields(field_list, combobox):
         w.clear_fields(field_list)
         field_list[6].set("Record Change")
+        combobox.current(0)
 
     clearFields_button = w.Button(note_frame, text="Clear Fields")
-    clearFields_button["command"] = lambda: clear_fields(field_list)
+    clearFields_button["command"] = lambda: clear_fields(field_list, combobox)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
     # TEXTBOX
@@ -46,17 +47,17 @@ def write_note(field_list, actions, note_frame, bg_color):
         textbox.insert("end", actions[i])
         if (i < len(actions)):
             textbox.insert("end", "\n")
-# END OF FN write_note_record_change
+# END OF FN write_note
 
 """
 FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For record changes
 """
-def make_write_button(write_button, field_list, actions,
+def make_write_button(write_button, field_list, combobox, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, actions,
+    write_button["command"] = lambda: write_note(field_list, combobox, actions,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button_record_change
@@ -90,7 +91,7 @@ def record_change(req_type, bg_color):
     requester_name = w.Entry(input_frame)
     requester_comment = w.Entry(input_frame)
 
-    requester_role = w.StringVar()
+    # requester_role = w.StringVar()
  
     # CREATE THE LIST OF FIELDS
     field_list = []
@@ -102,7 +103,8 @@ def record_change(req_type, bg_color):
 
     selected_role = w.StringVar()
     selected_role.set("Select Role")
-    field_list.append(requester_role) # 5
+    # field_list.append(requester_role) # 5
+    field_list.append(selected_role) # 5
 
     entry_list = []
     for i in range(1,4):
@@ -145,6 +147,7 @@ def record_change(req_type, bg_color):
     
     # COMBOBOX TO SELECT A TERM
     role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
+    role_options.current(0)
     
     event_bind = "<<ComboboxSelected>>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
@@ -163,7 +166,7 @@ def record_change(req_type, bg_color):
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    make_write_button(write_button, field_list, actions,
+    make_write_button(write_button, field_list, role_options, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
