@@ -128,23 +128,33 @@ def record_change(req_type, bg_color):
     field_list.append(record_change_type) # 6
     
     # USER INPUT FOR REQUEST DETAILS
+    # A label that is initialized and then changes each time a new role is selected
+    text = "Requester Role\n(for custom, press Enter)"
+    role_label = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
+    role_label.grid(row=3, column=1)
 
     # When a combo box option is selected or entered, update the field value.
-    def set_result(event):
+    def set_result(event, role_label):
         selected_role = role_options.get().strip()
         field_list[5].set(selected_role)
 
+        # Update the label to display the current role
         text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
-        l = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
-        l.grid(row=3, column=1)
+        role_label.config(text=text)
+        role_label.grid(row=3, column=1)
     
     # COMBOBOX TO SELECT A TERM
     role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
-    role_options.bind("<<ComboboxSelected>>", set_result)
-    role_options.bind("<Return>", set_result)
+    
+    event_bind = "<<ComboboxSelected>>"
+    role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
+    
+    event_bind = "<Return>"
+    role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
+    
     role_options.grid(row=8, column=0)
 
-    w.input_request_details(field_list, role_options, input_frame, bg_color)
+    w.input_request_details(field_list, role_label, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [

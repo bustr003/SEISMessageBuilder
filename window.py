@@ -150,13 +150,13 @@ staff_roles = [
 """
 FN PURPOSE: Get user input about the request.
 """
-def input_request_details(fields_list, role_options, input_frame, bg_color):
+def input_request_details(fields_list, role_label, role_options, input_frame, bg_color):
     # FRAME FOR USER INPUT
     input_frame.pack()
     r = 0 # Row placement
 
     # TITLE
-    l = Label(input_frame, text=fields_list[0], bg=bg_color, font=("Courier New", 12))
+    l = Label(input_frame, text=fields_list[0], bg=bg_color, font=("Courier New", 12), wraplength=250)
     l.grid(row=r, column=0, columnspan=2)
 
     # USER INPUT
@@ -174,10 +174,15 @@ def input_request_details(fields_list, role_options, input_frame, bg_color):
     l = Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=0)
     fields_list[3].grid(row=r+4, column=0)
-
+    
+    """
     text = "Requester Role\n(for custom, press Enter)"
     l = Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=1)
+    fields_list[5].set(staff_roles[0])
+    role_options.grid(row=r+4, column=1)
+    """
+    role_label.grid(row=r+3, column=1)
     fields_list[5].set(staff_roles[0])
     role_options.grid(row=r+4, column=1)
 
