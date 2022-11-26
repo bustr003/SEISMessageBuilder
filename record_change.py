@@ -21,7 +21,7 @@ def write_note(field_list, combobox, actions, note_frame, bg_color):
 
     # BUTTON TO CLEAR THE FIELDS
     def clear_fields(field_list, combobox):
-        w.clear_fields(field_list)
+        w.clear_fields(field_list, combobox)
         field_list[6].set("Record Change")
         combobox.current(0)
 
