@@ -11,7 +11,7 @@ Icon image (bunny) created by Neala Mendoza.
 
 # TO DO
 
-# DONE
+## DONE
 11/26/2022
 - Add APE and DHH to staff roles
 - Make staff roles a combo box (not just dropdown)
