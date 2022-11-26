@@ -68,7 +68,8 @@ def status_change(req_type, bg_color):
     
     # COMBOBOX TO SELECT A TERM
     role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
-    
+    role_options.current(0)
+
     event_bind = "<<ComboboxSelected>>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
@@ -127,7 +128,7 @@ def status_change(req_type, bg_color):
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    w.make_write_button(write_button, field_list, actions,
+    w.make_write_button(write_button, field_list, role_options, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST

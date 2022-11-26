@@ -216,10 +216,11 @@ def reset_entry(entry_name):
 """
 FN PURPOSE: Reset multiple entry boxes.
 """
-def clear_fields(fields_list):
+def clear_fields(fields_list, combobox):
     for i in range(1, 4+1):
         reset_entry(fields_list[i])
-    fields_list[5].set("...")
+    combobox.current(0)
+    #fields_list[5].set("...")
 # END OF FN clear_fields
 
 """
@@ -258,12 +259,12 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For status changes, adding a student, and exiting a student
 """
-def write_note(field_list, actions, note_frame, bg_color):
+def write_note(field_list, combobox, actions, note_frame, bg_color):
     note_frame.pack()
 
     # BUTTON TO RESET THE FIELDS
     clearFields_button = Button(note_frame, text="Clear Fields")
-    clearFields_button["command"] = lambda: clear_fields(field_list)
+    clearFields_button["command"] = lambda: clear_fields(field_list, combobox)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
     # TEXTBOX
@@ -295,10 +296,10 @@ FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For status changes, adding a student, and exiting a student.
 """
-def make_write_button(write_button, field_list, actions,
+def make_write_button(write_button, field_list, combobox, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, actions, frame_list[2], bg_color)
+    write_button["command"] = lambda: write_note(field_list, combobox, actions, frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button
 
