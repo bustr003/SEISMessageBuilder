@@ -28,6 +28,7 @@ textbox_height = 18
 # Values for Clear button
 go_home_button_text = "Home"
 go_home_label_text = "Home"
+go_home_image = PhotoImage(file = r"images\bunny_pixel_small.png")
 
 # Index Page
 f_index = Frame(root)
@@ -47,7 +48,7 @@ index_text += "\n\nFollow Up\n- Message to follow up with providers"
 index_text += "\n\nResources\n- Glossary\n- Handle duplicate records"
 
 l = Label(f_index, text=index_text, font=("Calibri", 12), justify="left")
-l.grid(row=1, column=0)#, sticky=W)
+l.grid(row=1, column=0)
 
 """
 COLORS
@@ -236,7 +237,14 @@ FN PURPOSE: Make a button.
 When pressed, the widgets for this menu option will be destroyed.
 """
 def make_go_home_button(go_home_button, frame_list, bg_color):
-    go_home_button["text"] = go_home_button_text
+    #go_home_image = PhotoImage(file = r"images\bunny_pixel.png")
+    #image_l = Label(frame_list[0], image=go_home_image)
+    #image_l.grid(row=0, column=0)
+
+    #go_home_button["text"] = go_home_button_text
+    go_home_button["image"] = go_home_image
+    #go_home_button["height"] = 20
+    #go_home_button["width"] = 20
     go_home_button["command"] = lambda: go_home(frame_list)
     go_home_button.grid(row=0, column=0)#, sticky=W)
     l = Label(frame_list[0], bg=bg_color)
