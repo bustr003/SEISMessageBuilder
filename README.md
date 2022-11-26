@@ -10,9 +10,9 @@ Icon image (bunny) created by Neala Mendoza.
 ---
 
 # TO DO
-- Add latest update date & location next to Home button
 - Clear textbox upon clearing fields
 - Update "Note for" heading for each request
+- Add update log in Resources
 
 ## DONE
 11/26/2022
@@ -20,3 +20,5 @@ Icon image (bunny) created by Neala Mendoza.
 - Make staff roles a combo box (not just dropdown)
 - Add the feature that removes all children, instead of needing to press x
 - Add instructions for duplicate records
+- Add latest update date & location to home page
+- Add image on to Home button
