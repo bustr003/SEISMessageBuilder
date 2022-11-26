@@ -40,7 +40,7 @@ import exit_student # Request Type: Exit
 import follow_up # Emails
 
 import glossary # Terms and their definitions
-import duplicate # Handling duplicate records
+import duplicates # Handling duplicate records
 
 # Main Menu
 main_menu = w.Menu(w.root)
@@ -95,10 +95,10 @@ def click_glossary(bg_color):
     w.f_glossary.place(relwidth=r_width, relheight=r_height, rely=r_y)
     glossary.glossary(bg_color)
 
-def click_duplicate(bg_color):
+def click_duplicates(bg_color):
     w.hide_all_frames()
     w.f_duplicate.place(relwidth=r_width, relheight=r_height, rely=r_y)
-    duplicate.merge_duplicates(bg_color)
+    duplicates.merge_duplicates(bg_color)
 # END OF Menu Option Functions
 
 """
@@ -204,7 +204,7 @@ main_menu.add_cascade(label="Resources", menu=resource_menu)
 resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
 resource_menu.add_command(label="Merge duplicates",
-                        command=lambda: click_duplicate(w.yellow))
+                        command=lambda: click_duplicates(w.yellow))
 
 w.root.mainloop()
 
