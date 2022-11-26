@@ -6,22 +6,66 @@
 import window as w
 
 """
+FN PURPOSE: Get user input about the request.
+"""
+def input_request_details(fields_list, input_frame, bg_color):
+    # FRAME FOR USER INPUT
+    input_frame.pack()
+    r = 0 # Row placement
+
+    # TITLE
+    l = w.Label(input_frame, text=fields_list[0], bg=bg_color, font=("Courier New", 12), wraplength=250)
+    l.grid(row=r, column=0, columnspan=2)
+
+    # USER INPUT
+    text = "Outdated SEIS ID"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+1, column=0)
+    fields_list[1].grid(row=r+2,column=0)
+
+    text = "Date created (outdated)"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+1, column=1)
+    fields_list[2].grid(row=r+2, column=1)
+
+    text = "Current SEIS ID"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+3, column=0)
+    fields_list[3].grid(row=r+4, column=0)
+
+    text = "Date created (current)"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+3, column=1)
+    fields_list[5].grid(row=r+4, column=1)
+
+    text = "Student Name (current)"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+5, column=0)
+    fields_list[4].grid(row=r+6, column=0)
+
+    text = "Providers"
+    l = w.Label(input_frame, text=text, bg=bg_color)
+    l.grid(row=r+7, column=0, columnspan=2)
+    fields_list[6].grid(row=r+8, column=0, columnspan=2)
+
+# END OF FN input_reqest_details
+
+"""
 FN PURPOSE: Write a note that describes the request,
 the actions taken to complete the request,
 and any other comments or concerns.
 - For record changes
 """
-def write_note(field_list, actions, note_frame, bg_color):
+def write_note(field_list, note_frame, bg_color):
     note_frame.pack()
 
-    header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
+    header = "Note for " + field_list[4].get().strip()
     l = w.Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
     l.grid(row=0, column=0, columnspan=2)
 
     # BUTTON TO CLEAR THE FIELDS
     def clear_fields(field_list):
         w.clear_fields(field_list)
-        field_list[6].set("Record Change")
 
     clearFields_button = w.Button(note_frame, text="Clear Fields")
     clearFields_button["command"] = lambda: clear_fields(field_list)
@@ -32,33 +76,46 @@ def write_note(field_list, actions, note_frame, bg_color):
     textbox.config(width=w.textbox_width, height=w.textbox_height)
     textbox.grid(row=2, column=0, columnspan=2)
 
-    line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[6].get() + "\n"
-    textbox.insert("end", line)
+    lines = [] # The lines of text
+    
+    line = "SEIS ID " + field_list[1].get().strip() + " is an outdated record, created on " + field_list[2].get().strip() + ".\n"
+    line += "This SEIS record must be deactivated.\n\n"
+    lines.append(line)
 
-    if field_list[4].get().strip() != "":
-        line = "\"" + field_list[4].get().strip() + "\"\n\n"
-    else:
-        line = "\n"
-    textbox.insert("end", line)
+    line = "The correct record for this student is " + field_list[3].get().strip() + ".\n"
+    line += "Name: " + field_list[4].get().strip() + "\n"
+    line += "Record added on: " + field_list[5].get().strip() + "\n\n"
+    lines.append(line)
 
-    for i in range(0, len(actions)):
-        textbox.insert("end", actions[i])
-        if (i < len(actions)):
-            textbox.insert("end", "\n")
-# END OF FN write_note_record_change
+    line = "Downloaded the Future IEP forms and attachments. -\n"
+    line += "Sent the documents to providers and advised them to work on the correct record (not this one). -\n"
+    line += field_list[6].get().strip() + "\n\n"
+    lines.append(line)
+
+    line = "PROCESS FOR DE-ACTIVATING A DUPLICATE RECORD\n"
+    line += "Do not report: DNR, Current record is " + field_list[3].get().strip() + " -\n"
+    line += "Duplicate record: Current record is " + field_list[3].get().strip() + " -\n"
+    line += "Changed status to DNQ/Not Providing Services. -\n\n"
+    line += "This record will not be pulled into search results.\n"
+    line += "This record will not be pulled into the Add Student search.\n"
+    lines.append(line)
+
+    for line in lines:
+        textbox.insert("end", line)
+# END OF FN write_note
 
 """
 FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For record changes
 """
-def make_write_button(write_button, field_list, actions,
+def make_write_button(write_button, field_list,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, actions,
+    write_button["command"] = lambda: write_note(field_list,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
-# END OF FN make_write_button_record_change
+# END OF FN make_write_button
 
 """
 Merge two duplicate records.
@@ -81,85 +138,44 @@ def merge_duplicates(bg_color):
     w.configure_frames(frame_list, bg_color)
 
     # CREATE THE REQUEST DETAILS
-    stu_LN = w.Entry(input_frame)
-    stu_FN = w.Entry(input_frame)
-    requester_name = w.Entry(input_frame)
-    requester_comment = w.Entry(input_frame)
-
-    requester_role = w.StringVar()
+    invalid_seis_id = w.Entry(input_frame)
+    invalid_date = w.Entry(input_frame)
+    current_seis_id = w.Entry(input_frame)
+    current_name = w.Entry(input_frame)
+    current_date = w.Entry(input_frame)
+    providers = w.Entry(input_frame)
  
     # CREATE THE LIST OF FIELDS
     field_list = []
-    field_list.append(req_type) # 0
-    field_list.append(stu_LN) # 1
-    field_list.append(stu_FN) # 2
-    field_list.append(requester_name) # 3
-    field_list.append(requester_comment) # 4
-
-    selected_role = w.StringVar()
-    selected_role.set("Select Role")
-    field_list.append(requester_role) # 5
+    field_list.append("Merge Duplicate Records") # 0
+    field_list.append(invalid_seis_id) # 1
+    field_list.append(invalid_date) # 2
+    field_list.append(current_seis_id) # 3
+    field_list.append(current_name) # 4
+    field_list.append(current_date) # 5
+    field_list.append(providers) # 6
 
     entry_list = []
-    for i in range(1,4):
+    for i in range(1,7):
         entry_list.append(field_list[i])
 
+    current_name.insert(0, "<Name in current SEIS ID>")
+    providers.insert(0, "<Names of providers>")
     w.configure_entries(entry_list, w.entry_width_size)
-
-    text = "Change Requested"
-    l = w.Label(input_frame, text=text, bg=bg_color)
-    l.grid(row=7, column=0)
-
-    record_change_types = [
-        "Record Change",
-        "Student should not be on my caseload",
-        "Add provider",
-        "Change Case Manager"
-    ]
-
-    record_change_type = w.StringVar()
-    record_change_dropdown = w.OptionMenu(input_frame, record_change_type, *record_change_types)
-    record_change_dropdown.config(width=w.dropdown_width, wrap=w.wrap_units)
-    w.input_dropdown(record_change_type, record_change_types, record_change_dropdown, 8, 0)
-    field_list.append(record_change_type) # 6
     
     # USER INPUT FOR REQUEST DETAILS
-    # A label that is initialized and then changes each time a new role is selected
-    text = "Requester Role\n(for custom, press Enter)"
-    role_label = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
-    role_label.grid(row=3, column=1)
+    input_request_details(field_list, input_frame, bg_color)
 
-    # When a combo box option is selected or entered, update the field value.
-    def set_result(event, role_label):
-        selected_role = role_options.get().strip()
-        field_list[5].set(selected_role)
-
-        # Update the label to display the current role
-        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
-        role_label.config(text=text)
-        role_label.grid(row=3, column=1)
-    
-    # COMBOBOX TO SELECT A TERM
-    role_options = w.ttk.Combobox(input_frame, value=w.staff_roles, width=w.combobox_width)
-    
-    event_bind = "<<ComboboxSelected>>"
-    role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
-    
-    event_bind = "<Return>"
-    role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
-    
-    role_options.grid(row=8, column=0)
-
-    w.input_request_details(field_list, role_label, role_options, input_frame, bg_color)
-
+    """
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed."
     ]
+    """
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    make_write_button(write_button, field_list, actions,
+    make_write_button(write_button, field_list,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
