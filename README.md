@@ -10,8 +10,7 @@ Icon image (bunny) created by Neala Mendoza.
 ---
 
 # TO DO
-- Add instructions for duplicate records (maybe just Glossary)
-
+[11/26/2022] Add instructions for duplicate records
 [11/26/2022] Add the feature that removes all children, instead of needing to press x
 [11/26/2022] Add APE and DHH to staff roles
 [11/26/2022] Make staff roles a combo box (not just dropdown)
