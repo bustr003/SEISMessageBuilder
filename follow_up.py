@@ -154,8 +154,8 @@ def follow_up(follow_type, follow_item, bg_color):
     make_follow_write_button(write_button, field_list, frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
-    clearFrames_button = w.Button(close_frame)
-    w.make_clear_frames_button(clearFrames_button, frame_list, bg_color)
+    go_home_button = w.Button(close_frame)
+    w.make_go_home_button(go_home_button, frame_list, bg_color)
 # END OF FN follow_up
 
 """
@@ -293,8 +293,8 @@ def signature(status, bg_color):
     make_signature_write_button(write_button, field_list, frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
-    clearFrames_button = w.Button(close_frame)
-    w.make_clear_frames_button(clearFrames_button, frame_list, bg_color)
+    go_home_button = w.Button(close_frame)
+    w.make_go_home_button(go_home_button, frame_list, bg_color)
 # END OF FN signature
 
 # EOF follow_up.py

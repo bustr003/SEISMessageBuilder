@@ -26,8 +26,8 @@ textbox_width = 50
 textbox_height = 18
 
 # Values for Clear button
-clear_request_button_text = "x"
-clear_request_label_text = "Close this builder before opening a new one"
+go_home_button_text = "Home"
+go_home_label_text = ""
 
 # Index Page
 index_text = "\nWelcome to the Special Education Message Builder!"
@@ -84,9 +84,16 @@ for a new frame.
 To be run each time a menu option is selected.
 """
 def hide_all_frames():
+    # Take the index frame off the screen
     f_index.pack_forget()
 
+    # Go through each frame
     for frame in window_frames:
+        # Destroy all of the widgets (labels, entry boxes, text box, etc)
+        for widget in frame.winfo_children():
+            widget.destroy()
+        
+        # Take the frame off of the screen
         frame.place_forget()
 # END OF FN hide_all_frames
 
@@ -208,26 +215,26 @@ def clear_fields(fields_list):
 """
 FN PURPOSE: Destroy the widgets for this menu option.
 """
-def clear_frames(frame_list):
+def go_home(frame_list):
     for frame in frame_list:
         frame.destroy()
     hide_all_frames()
     f_index.pack()
     l.pack()
-# END OF FN clear_frames
+# END OF FN go_home
 
 """
 FN PURPOSE: Make a button.
 When pressed, the widgets for this menu option will be destroyed.
 """
-def make_clear_frames_button(clear_request_button, frame_list, bg_color):
-    clear_request_button["text"] = clear_request_button_text
-    clear_request_button["command"] = lambda: clear_frames(frame_list)
-    clear_request_button.grid(row=0, column=0, sticky=W)
+def make_go_home_button(go_home_button, frame_list, bg_color):
+    go_home_button["text"] = go_home_button_text
+    go_home_button["command"] = lambda: go_home(frame_list)
+    go_home_button.grid(row=0, column=0, sticky=W)
     l = Label(frame_list[0], bg=bg_color)
-    l["text"] = clear_request_label_text
+    l["text"] = go_home_label_text
     l.grid(row=0, column=1, sticky=W)
-# END OF FN make_clear_frames_button
+# END OF FN make_go_home_button
 
 """
 FN PURPOSE: Write a note that describes the request,
