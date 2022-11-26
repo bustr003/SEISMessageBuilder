@@ -68,6 +68,7 @@ f_exit_student = Frame(root)
 f_follow_up = Frame(root)
 f_signature = Frame(root)
 f_glossary = Frame(root)
+f_duplicate = Frame(root)
 
 window_frames = []
 window_frames.append(f_record_change)
@@ -77,6 +78,7 @@ window_frames.append(f_exit_student)
 window_frames.append(f_follow_up)
 window_frames.append(f_signature)
 window_frames.append(f_glossary)
+window_frames.append(f_duplicate)
 
 """
 FN PURPOSE: Hide all frames to make the window clean

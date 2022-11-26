@@ -72,19 +72,25 @@ def glossary(bg_color):
     # ALLOCATE A SPACE FOR THE DROPDOWN TO SELECT TERM
     input_frame.pack()
 
+    # HEADING
+    text = "Glossary"
+    l = w.Label(input_frame, text=text, bg=bg_color, font=("Courier New", 12), wraplength=250)
+    l.grid(row=0, column=0, columnspan=2)
+
     text = "Type a term, then press ENTER."
     text += "\nTo search, type letter(s) then press the down arrow key."
     l = w.Label(input_frame, text=text, bg=bg_color)
-    l.grid(row=0, column=0, columnspan=2)
+    l.grid(row=1, column=0, columnspan=2)
 
+    # COMBOBOX VALUE
     selected_term = w.StringVar()
     selected_term.set("Select Term")
     
     # TEXTBOX TO DISPLAY RESULTS
     note_frame.pack()
     textbox = w.Text(note_frame, wrap="word", font=("Calibri", 11))
-    textbox.config(width=w.textbox_width, height=int(w.textbox_height*1.5))
-    textbox.grid(row=0, column=0, columnspan=2)
+    textbox.config(width=w.textbox_width, height=int(w.textbox_height*1.4))
+    textbox.grid(row=2, column=0, columnspan=2)
 
     """
     FN PURPOSE: When a dropdown option is selected, display the result in the textbox.
@@ -118,7 +124,7 @@ def glossary(bg_color):
     combobox.bind("<<ComboboxSelected>>", display_result)
     combobox.bind("<KeyRelease>", edit_combobox_values)
     combobox.bind("<Return>", display_result)
-    combobox.grid(row=1, column=0)
+    combobox.grid(row=2, column=0)
 
     # BUTTON TO RESET THE FIELDS
     def clear_textbox():
@@ -126,7 +132,7 @@ def glossary(bg_color):
 
     clear_textbox_button = w.Button(input_frame, text="Clear Results")
     clear_textbox_button["command"] = clear_textbox
-    clear_textbox_button.grid(row=1, column=1)
+    clear_textbox_button.grid(row=2, column=1)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
     go_home_button = w.Button(close_frame)

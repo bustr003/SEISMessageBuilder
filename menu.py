@@ -27,6 +27,7 @@ Files for the primary functions and own functions of each menu option
 
 Files for references
 8) glossary.py An interactive glossary
+9) duplicate.py Handling duplicate records
 """
 
 import window as w # Tkinter window
@@ -39,6 +40,7 @@ import exit_student # Request Type: Exit
 import follow_up # Emails
 
 import glossary # Terms and their definitions
+import duplicate # Handling duplicate records
 
 # Main Menu
 main_menu = w.Menu(w.root)
@@ -92,6 +94,11 @@ def click_glossary(bg_color):
     w.hide_all_frames()
     w.f_glossary.place(relwidth=r_width, relheight=r_height, rely=r_y)
     glossary.glossary(bg_color)
+
+def click_duplicate(bg_color):
+    w.hide_all_frames()
+    w.f_duplicate.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    duplicate.merge_duplicates(bg_color)
 # END OF Menu Option Functions
 
 """
@@ -196,6 +203,8 @@ resource_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Resources", menu=resource_menu)
 resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
+resource_menu.add_command(label="Merge duplicates",
+                        command=lambda: click_duplicate(w.yellow))
 
 w.root.mainloop()
 
