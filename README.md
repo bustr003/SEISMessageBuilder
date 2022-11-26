@@ -10,6 +10,9 @@ Icon image (bunny) created by Neala Mendoza.
 ---
 
 # TO DO
+- Add latest update date & location next to Home button
+- Clear textbox upon clearing fields
+- Update "Note for" heading for each request
 
 ## DONE
 11/26/2022
