@@ -152,7 +152,7 @@ def record_change(req_type, bg_color):
     event_bind = "<<ComboboxSelected>>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
-    event_bind = "<Return>"
+    event_bind = "<KeyRelease>"#"<Return>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
     role_options.grid(row=8, column=0)
