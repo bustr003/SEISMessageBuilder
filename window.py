@@ -219,9 +219,9 @@ FN PURPOSE: Reset multiple entry boxes.
 def clear_fields(field_list, combobox, role_label):
     for i in range(1, 4+1):
         reset_entry(field_list[i])
-    combobox.current(0)
 
-    default_role = "..."
+    combobox.current(0)
+    default_role = staff_roles[0]
     combobox.current(0)
     field_list[5].set(default_role)
 

@@ -127,7 +127,7 @@ def record_change(req_type, bg_color):
     
     # USER INPUT FOR REQUEST DETAILS
     # A label that is initialized and then changes each time a new role is selected
-    text = "Requester Role:\n..."
+    text = "Requester Role\n" + w.staff_roles[0]
     role_label = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
     role_label.grid(row=3, column=1)
 

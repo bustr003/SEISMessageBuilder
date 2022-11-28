@@ -31,8 +31,6 @@ def exit_student(req_type, bg_color):
     requester_name = w.Entry(input_frame)
     requester_comment = w.Entry(input_frame)
 
-    requester_role = w.StringVar()
- 
     # CREATE THE LIST OF FIELDS
     field_list = []
     field_list.append(req_type) # 0
@@ -43,7 +41,7 @@ def exit_student(req_type, bg_color):
     
     selected_role = w.StringVar()
     selected_role.set("Select Role")
-    field_list.append(requester_role) # 5
+    field_list.append(selected_role) # 5
 
     entry_list = []
     for i in range(1,4):
@@ -53,7 +51,7 @@ def exit_student(req_type, bg_color):
 
     # USER INPUT FOR REQUEST DETAILS
     # A label that is initialized and then changes each time a new role is selected
-    text = "Requester Role\n(for custom, press Enter)"
+    text = "Requester Role\n" + w.staff_roles[0]
     role_label = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
     role_label.grid(row=3, column=1)
 
@@ -63,7 +61,7 @@ def exit_student(req_type, bg_color):
         field_list[5].set(selected_role)
 
         # Update the label to display the current role
-        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
+        text = "Requester Role:\n" + selected_role
         role_label.config(text=text)
         role_label.grid(row=3, column=1)
     
@@ -74,7 +72,7 @@ def exit_student(req_type, bg_color):
     event_bind = "<<ComboboxSelected>>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
-    event_bind = "<Return>"
+    event_bind = "<KeyRelease>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
     role_options.grid(row=8, column=0)
@@ -136,7 +134,7 @@ def exit_student(req_type, bg_color):
     
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    w.make_write_button(write_button, field_list, role_options, actions,
+    w.make_write_button(write_button, field_list, role_options, role_label, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
