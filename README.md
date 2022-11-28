@@ -10,11 +10,13 @@ Icon image (bunny) created by Neala Mendoza.
 ---
 
 # TO DO
-- Clear textbox upon clearing fields
 - Update "Note for" heading for each request
 - Add update log in Resources
 
 ## DONE
+11/28/2022
+- Clear textbox upon clearing fields
+
 11/26/2022
 - Add APE and DHH to staff roles
 - Make staff roles a combo box (not just dropdown)
