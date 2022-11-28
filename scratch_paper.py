@@ -3,7 +3,10 @@
 
 """
 Student has turned 5. Ed Settings page adjustment from pre-k to k. No meeting held.
-- Mhea Bustria, SpEd Data Technician
+
+Student is 5 and starting Kinder. Ed Settings page adjustment from pre-k to k. No meeting held.
+
+Removed the Preschool Program Setting. Added the Program Setting.
 """
 
 # EOF scratch_paper.txt
