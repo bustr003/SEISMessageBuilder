@@ -20,21 +20,12 @@ def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
     l.grid(row=0, column=0, columnspan=2)
 
     # BUTTON TO CLEAR THE FIELDS
-    def clear_fields(field_list, combobox):
-        w.clear_fields(field_list, combobox)
+    def clear_fields(field_list, combobox, role_label):
+        w.clear_fields(field_list, combobox, role_label)
         field_list[6].set("Record Change")
 
-        default_role = "..."
-        combobox.current(0)
-        field_list[5].set(default_role)
-
-        # Update the label to display the current role
-        text = "Requester Role:\n" + default_role
-        role_label.config(text=text)
-        role_label.grid(row=3, column=1)
-
     clearFields_button = w.Button(note_frame, text="Clear Fields")
-    clearFields_button["command"] = lambda: clear_fields(field_list, combobox)
+    clearFields_button["command"] = lambda: clear_fields(field_list, combobox, role_label)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
     # TEXTBOX
@@ -98,8 +89,6 @@ def record_change(req_type, bg_color):
     stu_FN = w.Entry(input_frame)
     requester_name = w.Entry(input_frame)
     requester_comment = w.Entry(input_frame)
-
-    # requester_role = w.StringVar()
  
     # CREATE THE LIST OF FIELDS
     field_list = []
@@ -111,7 +100,6 @@ def record_change(req_type, bg_color):
 
     selected_role = w.StringVar()
     selected_role.set("Select Role")
-    # field_list.append(requester_role) # 5
     field_list.append(selected_role) # 5
 
     entry_list = []

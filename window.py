@@ -216,11 +216,19 @@ def reset_entry(entry_name):
 """
 FN PURPOSE: Reset multiple entry boxes.
 """
-def clear_fields(fields_list, combobox):
+def clear_fields(field_list, combobox, role_label):
     for i in range(1, 4+1):
-        reset_entry(fields_list[i])
+        reset_entry(field_list[i])
     combobox.current(0)
-    #fields_list[5].set("...")
+
+    default_role = "..."
+    combobox.current(0)
+    field_list[5].set(default_role)
+
+    # Update the label to display the current role
+    text = "Requester Role:\n" + default_role
+    role_label.config(text=text)
+    role_label.grid(row=3, column=1)
 # END OF FN clear_fields
 
 """
@@ -238,10 +246,6 @@ FN PURPOSE: Make a button.
 When pressed, the widgets for this menu option will be destroyed.
 """
 def make_go_home_button(go_home_button, frame_list, bg_color):
-    #go_home_image = PhotoImage(file = r"images\bunny_pixel.png")
-    #image_l = Label(frame_list[0], image=go_home_image)
-    #image_l.grid(row=0, column=0)
-
     #go_home_button["text"] = go_home_button_text
     go_home_button["image"] = go_home_image
     #go_home_button["height"] = 20
@@ -259,12 +263,12 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For status changes, adding a student, and exiting a student
 """
-def write_note(field_list, combobox, actions, note_frame, bg_color):
+def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
     note_frame.pack()
 
     # BUTTON TO RESET THE FIELDS
     clearFields_button = Button(note_frame, text="Clear Fields")
-    clearFields_button["command"] = lambda: clear_fields(field_list, combobox)
+    clearFields_button["command"] = lambda: clear_fields(field_list, combobox, role_label)
     clearFields_button.grid(row=1, column=0, columnspan=2)
 
     # TEXTBOX
@@ -296,10 +300,10 @@ FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For status changes, adding a student, and exiting a student.
 """
-def make_write_button(write_button, field_list, combobox, actions,
+def make_write_button(write_button, field_list, combobox, role_label, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, combobox, actions, frame_list[2], bg_color)
+    write_button["command"] = lambda: write_note(field_list, combobox, role_label, actions, frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button
 
