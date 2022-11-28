@@ -12,7 +12,7 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For record changes
 """
-def write_note(field_list, combobox, actions, note_frame, bg_color):
+def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
     note_frame.pack()
 
     header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
@@ -23,7 +23,15 @@ def write_note(field_list, combobox, actions, note_frame, bg_color):
     def clear_fields(field_list, combobox):
         w.clear_fields(field_list, combobox)
         field_list[6].set("Record Change")
+
+        default_role = "..."
         combobox.current(0)
+        field_list[5].set(default_role)
+
+        # Update the label to display the current role
+        text = "Requester Role:\n" + default_role
+        role_label.config(text=text)
+        role_label.grid(row=3, column=1)
 
     clearFields_button = w.Button(note_frame, text="Clear Fields")
     clearFields_button["command"] = lambda: clear_fields(field_list, combobox)
@@ -54,10 +62,10 @@ FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For record changes
 """
-def make_write_button(write_button, field_list, combobox, actions,
+def make_write_button(write_button, field_list, combobox, role_label, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, combobox, actions,
+    write_button["command"] = lambda: write_note(field_list, combobox, role_label, actions,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button_record_change
@@ -131,7 +139,7 @@ def record_change(req_type, bg_color):
     
     # USER INPUT FOR REQUEST DETAILS
     # A label that is initialized and then changes each time a new role is selected
-    text = "Requester Role\n(for custom, press Enter)"
+    text = "Requester Role:\n..."
     role_label = w.Label(input_frame, text=text, wraplength=w.wrap_units, bg=bg_color)
     role_label.grid(row=3, column=1)
 
@@ -141,7 +149,7 @@ def record_change(req_type, bg_color):
         field_list[5].set(selected_role)
 
         # Update the label to display the current role
-        text = "Requester Role:\n" + selected_role + "\n(for custom, press Enter)"
+        text = "Requester Role:\n" + selected_role
         role_label.config(text=text)
         role_label.grid(row=3, column=1)
     
@@ -152,7 +160,7 @@ def record_change(req_type, bg_color):
     event_bind = "<<ComboboxSelected>>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
-    event_bind = "<KeyRelease>"#"<Return>"
+    event_bind = "<KeyRelease>"
     role_options.bind(event_bind, lambda _ :set_result(event_bind, role_label))
     
     role_options.grid(row=8, column=0)
@@ -166,7 +174,7 @@ def record_change(req_type, bg_color):
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
     write_button = w.Button(input_frame)
-    make_write_button(write_button, field_list, role_options, actions,
+    make_write_button(write_button, field_list, role_options, role_label, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
