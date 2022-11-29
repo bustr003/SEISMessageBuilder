@@ -12,6 +12,8 @@ Icon image (bunny) created by Neala Mendoza.
 # TO DO
 - Update "Note for" heading for each request
 - Add update log in Resources
+- Add "Student transferred from a non-SEIS district" to Adds
+- Change Adds to a checkbox + combobox + popup style
 
 ## DONE
 11/28/2022
