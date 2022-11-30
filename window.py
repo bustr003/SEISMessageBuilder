@@ -45,7 +45,7 @@ index_text += "\n" + last_updated
 
 index_text += "\n\nRequest\n- Admin note for SEIS requests."
 index_text += "\n\nFollow Up\n- Message to follow up with providers"
-index_text += "\n\nResources\n- Glossary\n- Handle duplicate records"
+index_text += "\n\nResources\n- Glossary\n- Handle duplicate records\n- Meeting Type correction on an affirmed IEP"
 
 l = Label(f_index, text=index_text, font=("Calibri", 12), justify="left")
 l.grid(row=1, column=0)
@@ -74,6 +74,7 @@ f_follow_up = Frame(root)
 f_signature = Frame(root)
 f_glossary = Frame(root)
 f_duplicate = Frame(root)
+f_meeting_type = Frame(root)
 
 window_frames = []
 window_frames.append(f_record_change)
@@ -84,6 +85,7 @@ window_frames.append(f_follow_up)
 window_frames.append(f_signature)
 window_frames.append(f_glossary)
 window_frames.append(f_duplicate)
+window_frames.append(f_meeting_type)
 
 """
 FN PURPOSE: Hide all frames to make the window clean

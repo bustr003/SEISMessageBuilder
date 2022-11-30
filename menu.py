@@ -41,6 +41,7 @@ import follow_up # Emails
 
 import glossary # Terms and their definitions
 import duplicates # Handling duplicate records
+import meeting_type as mt # Correct the Meeting Type
 
 # Main Menu
 main_menu = w.Menu(w.root)
@@ -99,6 +100,11 @@ def click_duplicates(bg_color):
     w.hide_all_frames()
     w.f_duplicate.place(relwidth=r_width, relheight=r_height, rely=r_y)
     duplicates.merge_duplicates(bg_color)
+
+def click_meeting_type(bg_color):
+    w.hide_all_frames()
+    w.f_meeting_type.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    mt.meeting_type_correction(bg_color)
 # END OF Menu Option Functions
 
 """
@@ -205,6 +211,8 @@ resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
 resource_menu.add_command(label="Merge duplicates",
                         command=lambda: click_duplicates(w.yellow))
+resource_menu.add_command(label="Meeting Type Correction",
+                        command=lambda: click_meeting_type(w.yellow))
 
 w.root.mainloop()
 

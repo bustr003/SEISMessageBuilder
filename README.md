@@ -16,6 +16,9 @@ Icon image (bunny) created by Neala Mendoza.
 - Change Adds to a checkbox + combobox + popup style
 
 ## DONE
+11/30/2022
+- Added a message builder for changing the meeting type of an affirmed IEP.
+
 11/28/2022
 - Clear textbox upon clearing fields
 
