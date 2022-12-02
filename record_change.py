@@ -12,12 +12,12 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For record changes
 """
-def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
+def write_note(field_list, combobox, role_label, header_label, actions, note_frame, bg_color):
     note_frame.pack()
 
     header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
-    l = w.Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
-    l.grid(row=0, column=0, columnspan=2)
+    header_label.config(text=header)
+    header_label.grid(row=0, column=0, columnspan=2)
 
     # BUTTON TO CLEAR THE FIELDS
     def clear_fields(field_list, combobox, role_label):
@@ -53,10 +53,10 @@ FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For record changes
 """
-def make_write_button(write_button, field_list, combobox, role_label, actions,
+def make_write_button(write_button, field_list, combobox, role_label, header_label, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, combobox, role_label, actions,
+    write_button["command"] = lambda: write_note(field_list, combobox, role_label, header_label, actions,
     frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button_record_change
@@ -161,8 +161,9 @@ def record_change(req_type, bg_color):
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
+    header_label = w.Label(note_frame, bg=bg_color, font=("Courier New", 12))
     write_button = w.Button(input_frame)
-    make_write_button(write_button, field_list, role_options, role_label, actions,
+    make_write_button(write_button, field_list, role_options, role_label, header_label, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST

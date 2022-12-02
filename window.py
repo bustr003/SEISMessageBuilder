@@ -265,7 +265,7 @@ the actions taken to complete the request,
 and any other comments or concerns.
 - For status changes, adding a student, and exiting a student
 """
-def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
+def write_note(field_list, combobox, role_label, header_label, actions, note_frame, bg_color):
     note_frame.pack()
 
     # BUTTON TO RESET THE FIELDS
@@ -279,8 +279,8 @@ def write_note(field_list, combobox, role_label, actions, note_frame, bg_color):
     textbox.grid(row=2, column=0, columnspan=2)
 
     header = "Note for " + field_list[1].get().strip() + ", " + field_list[2].get().strip()
-    l = Label(note_frame, text=header, bg=bg_color, font=("Courier New", 12))
-    l.grid(row=0, column=0, columnspan=2)
+    header_label.config(text=header)
+    header_label.grid(row=0, column=0, columnspan=2)
 
     line = field_list[3].get().strip() + ", " + field_list[5].get().strip() + " requested: " + field_list[0] + "\n"
     textbox.insert("end", line)
@@ -302,10 +302,10 @@ FN PURPOSE: Make a button.
 When pressed, put a Note template in an editable textbox.
 - For status changes, adding a student, and exiting a student.
 """
-def make_write_button(write_button, field_list, combobox, role_label, actions,
+def make_write_button(write_button, field_list, combobox, role_label, header_label, actions,
     frame_list, bg_color):
     write_button["text"] = "Write Note"
-    write_button["command"] = lambda: write_note(field_list, combobox, role_label, actions, frame_list[2], bg_color)
+    write_button["command"] = lambda: write_note(field_list, combobox, role_label, header_label, actions, frame_list[2], bg_color)
     write_button.grid(row=6, column=1)
 # END OF FN make_write_button
 
