@@ -81,8 +81,8 @@ def add_student(req_type, bg_color):
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
     actions = [
         "Request completed.",
-        "SIS record: ",
-        "SEIS record: ",
+        "SIS record: not found/",
+        "SEIS record: created/found/transferred from",
         "SSID: ",
         "LEA Start Date: ",
         "Grade: ",
@@ -90,7 +90,8 @@ def add_student(req_type, bg_color):
         "School of Residence: ",
         "School of Attendance: ",
 
-        "\nChanged Plan Type to 300 - Pending Initial Evaluation. -",
+        "\nRE-ACTIVATED SEIS RECORD",
+        "Changed Plan Type to 300 - Pending Initial Evaluation. -",
         "Re-activated the SEIS record.",
         "Status changed to Pending.",
         "Directed the requester to update fields 26, 27, 28, 29, 14.20, 14.27.",
