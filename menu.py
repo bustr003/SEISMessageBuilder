@@ -40,6 +40,7 @@ import exit_student # Request Type: Exit
 import follow_up # Emails
 
 import glossary # Terms and their definitions
+import signature as sig # Signature statements
 import duplicates # Handling duplicate records
 import meeting_type as mt # Correct the Meeting Type
 
@@ -95,6 +96,11 @@ def click_glossary(bg_color):
     w.hide_all_frames()
     w.f_glossary.place(relwidth=r_width, relheight=r_height, rely=r_y)
     glossary.glossary(bg_color)
+
+def click_signature_statements(bg_color):
+    w.hide_all_frames()
+    w.f_signature.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    sig.signature_statements(bg_color)
 
 def click_duplicates(bg_color):
     w.hide_all_frames()
@@ -209,6 +215,8 @@ resource_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Resources", menu=resource_menu)
 resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
+resource_menu.add_command(label="Signature Statements",
+                        command=lambda: click_signature_statements(w.yellow))
 resource_menu.add_command(label="Merge duplicates",
                         command=lambda: click_duplicates(w.yellow))
 resource_menu.add_command(label="Meeting Type Correction",
