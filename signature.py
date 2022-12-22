@@ -10,10 +10,10 @@ import window as w
 """
 def signature_statements(bg_color):
     # SET BACKGROUND
-    w.f_glossary["bg"] = bg_color
+    w.f_sig_statement["bg"] = bg_color
 
     # CREATE THE FRAMES
-    page_frame = w.f_signature # !! FRAME
+    page_frame = w.f_sig_statement # !! FRAME
     close_frame = w.Frame(page_frame)
     #input_frame = w.Frame(page_frame)
     note_frame = w.Frame(page_frame)

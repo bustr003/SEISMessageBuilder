@@ -91,6 +91,11 @@ def click_signature(status):
     w.f_signature.place(relwidth=r_width, relheight=r_height, rely=r_y)
     follow_up.signature(status, w.pink)
 
+def click_sped_type_update(bg_color):
+    w.hide_all_frames()
+    w.f_sped_type.place(relwidth=r_width, relheight=r_height, rely=r_y)
+    follow_up.sped_type(bg_color)
+
 # Resources
 def click_glossary(bg_color):
     w.hide_all_frames()
@@ -209,6 +214,8 @@ def open_popup():
 
 follow_menu.add_command(label="Meeting Alerts",
                         command=open_popup)
+follow_menu.add_command(label="SpEd Type Update",
+                        command=lambda: click_sped_type_update(w.yellow))
 
 # === Menu: Resources ===
 resource_menu = w.Menu(main_menu)
