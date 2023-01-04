@@ -82,7 +82,7 @@ def status_change(req_type, bg_color):
     if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
-            "SpEd Type: - to be added",
+            "SpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
             "\nTeam Meeting Notes: ",
             "Parent signed \"I agree\" on ",
@@ -125,9 +125,8 @@ def status_change(req_type, bg_color):
         ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
-    header_label = w.Label(note_frame, bg=bg_color, font=("Courier New", 12))
     write_button = w.Button(input_frame)
-    w.make_write_button(write_button, field_list, role_options, role_label, header_label, actions,
+    w.make_write_button(write_button, field_list, role_options, role_label, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
