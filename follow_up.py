@@ -344,7 +344,7 @@ def write_sped_type_note(field_list, note_frame, bg_color):
 
     sped_type_data = field_list[0].get().split() # Strip whitespaces and separate the parts of the string into a list
         
-    line = "Updated SpEd Type to " + sped_type_data[0] + " as of " + sped_type_data[1]
+    line = "Updated SpEd Type to " + (sped_type_data[0]).upper() + " as of " + sped_type_data[1]
     textbox.insert("end", line)
 # END OF FN write_sped_type_note
 
@@ -386,7 +386,7 @@ def sped_type(bg_color):
     entry_list = []
     field_list.append(raw_data) # 0
 
-    raw_data.insert(0, "SPED_TYPE DATE")
+    raw_data.insert(0, "sped_type date")
     w.configure_entries(field_list, w.entry_width_size)
 
     # USER INPUT FOR REQUEST DETAILS

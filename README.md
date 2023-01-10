@@ -10,14 +10,12 @@ Icon image (bunny) created by Neala Mendoza.
 ---
 
 # TO DO
+- Update "Note for" heading for each request
 - Add update log in Resources
 - Add "Student transferred from a non-SEIS district" to Adds
 - Change Adds to a checkbox + combobox + popup style
 
 ## DONE
-12/01/2022
-- Update "Note for" heading for each request
-
 11/30/2022
 - Added a message builder for changing the meeting type of an affirmed IEP.
 

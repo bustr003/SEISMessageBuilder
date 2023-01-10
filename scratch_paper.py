@@ -2,9 +2,9 @@
 
 
 """
-Student has turned 5. Ed Settings page adjustment from pre-k to k. No meeting held.
+Student has turned 5. Ed Setting page adjustment from pre-k to k. No meeting held.
 
-Student is 5 and starting Kinder. Ed Settings page adjustment from pre-k to k. No meeting held.
+Student is 5 and starting Kinder. Ed Setting page adjustment from pre-k to k. No meeting held.
 
 Removed the Preschool Program Setting. Added the Program Setting.
 """

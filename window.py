@@ -11,6 +11,7 @@ from tkinter import ttk
 
 root = Tk()
 root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
+
 root.title("SpEd Message Builder") # Text to display on the title bar
 
 # Window geometry
@@ -162,7 +163,8 @@ staff_roles = [
     "Behavior Intervention Specialist",
     "Adapted Physical Education Teacher",
     "General Education Teacher",
-    "Teacher of Deaf/Hard of Hearing"
+    "Teacher of Deaf/Hard of Hearing",
+    "Program Specialist"
 ]
 
 """

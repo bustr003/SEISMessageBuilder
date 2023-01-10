@@ -114,7 +114,7 @@ def exit_student(req_type, bg_color):
             "\nCURRENT IEP COMMENT",
             "Parent would like to withdraw the student from services.",
             "Parent revoked consent on <date>.",
-            "The Revocation Letter was sent on <date>.",
+            "The Revocation Letter was sent by <name>, <role>, on <date>.",
             
             "\nSCHOOL AGE",
             "Do Not Report: -"
@@ -133,9 +133,8 @@ def exit_student(req_type, bg_color):
         ]
     
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
-    header_label = w.Label(note_frame, bg=bg_color, font=("Courier New", 12))
     write_button = w.Button(input_frame)
-    w.make_write_button(write_button, field_list, role_options, role_label, header_label, actions,
+    w.make_write_button(write_button, field_list, role_options, role_label, actions,
     frame_list, bg_color)
 
     # BUTTON TO CLEAR WIDGETS FOR THIS TYPE OF REQUEST
