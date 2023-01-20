@@ -82,8 +82,8 @@ def status_change(req_type, bg_color):
     if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
-            "Team Meeting Notes: ",
             "Parent signed \"I agree\" on ",
+            "Team Meeting Notes: ",
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
             "\nParent consent date for initial eval: ",
