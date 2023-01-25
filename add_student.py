@@ -89,6 +89,8 @@ def add_student(req_type, bg_color):
         "Middle Name: ",
         "School of Residence: ",
         "School of Attendance: ",
+        "IEP Team added: Yes/No",
+        "Psych access: Yes/No",
 
         "\nRE-ACTIVATED SEIS RECORD",
         "Changed Plan Type to 300 - Pending Initial Evaluation. -",

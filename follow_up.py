@@ -73,12 +73,12 @@ def write_message(field_list, note_frame, bg_color):
     if field_list[0] == "Unaffirmed":
         action = "Is this " + field_list[1] + " ready to be affirmed?"
     elif field_list[0] == "Unsigned":
-        action = "Are you still waiting for a signture for this " + field_list[1] + "?"
+        action = "Was the parent signature obtained for this " + field_list[1] + "?"
 
     line = "Hello, " + field_list[2].get().strip() + ".\n\n"
     textbox.insert("end", line)
 
-    line = "I noticed that you have an " + field_list[0] + " " + field_list [1]
+    line = "I noticed that there is an " + field_list[0] + " " + field_list [1]
     line += " for this student:\n" + field_list[6].get().strip()
     line += "\nSEIS ID: " + field_list[4].get().strip()
     line += "\nSSID: " + field_list[5].get().strip()
