@@ -89,6 +89,7 @@ def status_change(req_type, bg_color):
             "\nParent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
+            "Date enrolled: ",
             "Status changed from Pending to Eligible."
         ]
     elif req_type == "Status: Make DNQ":
