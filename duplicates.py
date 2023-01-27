@@ -78,8 +78,8 @@ def write_note(field_list, note_frame, bg_color):
 
     lines = [] # The lines of text
     
-    line = "SEIS ID " + field_list[1].get().strip() + " is an outdated record, created on " + field_list[2].get().strip() + ".\n"
-    line += "This SEIS record must be deactivated.\n\n"
+    line = "SEIS ID " + field_list[1].get().strip() + " is a duplicate record, created on " + field_list[2].get().strip() + ".\n"
+    line += "This SEIS record has been deactivated.\n\n"
     lines.append(line)
 
     line = "The correct record for this student is " + field_list[3].get().strip() + ".\n"
@@ -95,7 +95,7 @@ def write_note(field_list, note_frame, bg_color):
     line = "PROCESS FOR DE-ACTIVATING A DUPLICATE RECORD\n"
     line += "Do not report: DNR, Current record is " + field_list[3].get().strip() + " -\n"
     line += "Duplicate record: Current record is " + field_list[3].get().strip() + " -\n"
-    line += "Changed status to DNQ/Not Providing Services. -\n\n"
+    line += "Changed status to DNQ/Not Providing Services, DNQ Date is the date the record was created. -\n\n"
     line += "This record will not be pulled into search results.\n"
     line += "This record will not be pulled into the Add Student search.\n"
     lines.append(line)
