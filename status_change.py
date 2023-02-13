@@ -95,9 +95,9 @@ def status_change(req_type, bg_color):
     elif req_type == "Status: Make DNQ":
         actions = [
             "Request completed.",
+            "Parent signed \"not eligible\" on ",
             "Parent Consent Date: ",
             "Plan Type: 900 -",
-            "Parent signed \"not eligible\" on ",
             "Status changed from Pending to Ineligible."
         ]
     elif req_type == "Status: Assessment Plan Declined":
@@ -108,9 +108,10 @@ def status_change(req_type, bg_color):
             "\nSSID: ",
             "CALPADS \"Pending\" Transaction: ",
 
-            "\nParent consent date for initial eval: - removed",
-            "Meeting Type: 30 - removed -",
-            "Plan Type: 300 - removed -",
+            "\nEnsure that these three are blank.",
+            "Parent consent date for initial eval: blank -",
+            "Meeting Type: blank -",
+            "Plan Type: blank -",
             
             "\nDo Not Report: -",
             
