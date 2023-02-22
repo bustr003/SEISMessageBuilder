@@ -86,10 +86,10 @@ def status_change(req_type, bg_color):
             "Team Meeting Notes: ",
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
+            "Date enrolled: ",
             "\nParent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
-            "Date enrolled: ",
             "Status changed from Pending to Eligible."
         ]
     elif req_type == "Status: Make DNQ":
@@ -98,6 +98,7 @@ def status_change(req_type, bg_color):
             "Parent signed \"not eligible\" on ",
             "Date of parent consent for eval: ",
             "Plan Type: 900 -",
+            "Pre-K: Notified the Intake Specialist -",
             "Status changed from Pending to Ineligible."
         ]
     elif req_type == "Status: Assessment Plan Declined":
@@ -114,6 +115,7 @@ def status_change(req_type, bg_color):
             "Plan Type: blank -",
             
             "\nDo Not Report: -",
+            "Pre-K: Notified the Intake Specialist -",
             
             "\nStatus changed from Pending to Not Providing Services."
         ]
@@ -123,6 +125,7 @@ def status_change(req_type, bg_color):
             "Parent signed \"I decline the offer\" on ",
             "Parent consent date for initial eval: ",
             "Plan Type: 800 -",
+            "Pre-K: Notified the Intake Specialist -",
             "Status changed from Pending to Not Providing Services."
         ]
 
