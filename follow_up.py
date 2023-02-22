@@ -166,7 +166,7 @@ def input_signature_details(fields_list, input_frame, bg_color):
     l.grid(row=r, column=0, columnspan=2)
 
     # USER INPUT
-    text = "Case Manager FN"
+    text = "E-Signature Creator"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+1, column=0)
     fields_list[1].grid(row=r+2,column=0)
@@ -220,7 +220,7 @@ def write_signature_message(field_list, note_frame, bg_color):
 
     line += student_name
     line += "\nSEIS ID: " + student_info[0]
-    line += "\nSSID: " + student_info[1]
+    line += "\nMeeting Date: " + student_info[1]
     line += "\n"
 
     if field_list[0] == "Expired":
@@ -276,7 +276,7 @@ def signature(status, bg_color):
     for i in range(1,3):
         entry_list.append(field_list[i])
 
-    stu_info.insert(0, "SEIS_ID SSID LAST_NAME, FIRST NAME")
+    stu_info.insert(0, "SEIS_ID MeetingDate LName, FName")
     w.configure_entries(entry_list, w.entry_width_size)
 
     # USER INPUT FOR REQUEST DETAILS

@@ -141,7 +141,7 @@ wrap_units = 100 # screen units
 def configure_entries(entry_list, width):
     for entry in entry_list:
         long_entries = [
-            "SEIS_ID SSID LAST_NAME, FIRST NAME",
+            "SEIS_ID MeetingDate LName, FName",
             "<Names of providers>"
         ]
 
