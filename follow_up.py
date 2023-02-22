@@ -34,11 +34,6 @@ def input_follow_details(fields_list, input_frame, bg_color):
     l.grid(row=r+3, column=0)
     fields_list[4].grid(row=r+4, column=0)
 
-    text = "SSID"
-    l = w.Label(input_frame, text=text, bg=bg_color)
-    l.grid(row=r+3, column=1)
-    fields_list[5].grid(row=r+4, column=1)
-
     text = "Student Name"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+5, column=0)
@@ -81,7 +76,6 @@ def write_message(field_list, note_frame, bg_color):
     line = "I noticed that there is an " + field_list[0] + " " + field_list [1]
     line += " for this student:\n" + field_list[6].get().strip()
     line += "\nSEIS ID: " + field_list[4].get().strip()
-    line += "\nSSID: " + field_list[5].get().strip()
     line += "\n\nThe " + field_list[1] + " Date is " + field_list[3].get().strip() + "."
     line += "\n\n" + action + "\n"
 
