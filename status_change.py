@@ -86,8 +86,9 @@ def status_change(req_type, bg_color):
             "Team Meeting Notes: ",
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
-            "Date enrolled: ",
-            "\nParent consent date for initial eval: ",
+            
+            "\nDate enrolled: ",
+            "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
             "Status changed from Pending to Eligible."
