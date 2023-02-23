@@ -91,7 +91,7 @@ def status_change(req_type, bg_color):
             "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
-            "Status changed from Pending to Eligible."
+            "Status changed from Pending to Eligible. -"
         ]
     elif req_type == "Status: Make DNQ":
         actions = [
@@ -100,7 +100,7 @@ def status_change(req_type, bg_color):
             "Date of parent consent for eval: ",
             "Plan Type: 900 -",
             "Pre-K: Notified the Intake Specialist -",
-            "Status changed from Pending to Ineligible."
+            "Status changed from Pending to Ineligible. -"
         ]
     elif req_type == "Status: Assessment Plan Declined":
         actions = [
@@ -115,10 +115,10 @@ def status_change(req_type, bg_color):
             "Meeting Type: blank -",
             "Plan Type: blank -",
             
-            "\nDo Not Report: -",
+            "\nDo Not Report: DNR -",
             "Pre-K: Notified the Intake Specialist -",
             
-            "\nStatus changed from Pending to Not Providing Services."
+            "\nStatus changed from Pending to Not Providing Services. -"
         ]
     elif req_type == "Status: Eligible but NotProvSvcs":
         actions = [
@@ -127,7 +127,7 @@ def status_change(req_type, bg_color):
             "Parent consent date for initial eval: ",
             "Plan Type: 800 -",
             "Pre-K: Notified the Intake Specialist -",
-            "Status changed from Pending to Not Providing Services."
+            "Status changed from Pending to Not Providing Services. -"
         ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
