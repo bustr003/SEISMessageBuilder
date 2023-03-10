@@ -83,7 +83,7 @@ def status_change(req_type, bg_color):
         actions = [
             "Request completed.",
             "Parent signed \"I agree\" on ",
-            "Team Meeting Notes: ",
+
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
             
