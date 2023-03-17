@@ -39,14 +39,14 @@ index_image = PhotoImage(file = r"images\bunny_pixel.png")
 l = Label(f_index, image=index_image)
 l.grid(row=0, column= 0, pady=10)
 
-last_updated = "Last updated 11/26/2022 (at Home)"
+last_updated = "Last updated March 2023"
 
 index_text = "\nWelcome to the Special Education Message Builder!"
 index_text += "\n" + last_updated
 
 index_text += "\n\nRequest\n- Admin note for SEIS requests."
 index_text += "\n\nFollow Up\n- Message to follow up with providers"
-index_text += "\n\nResources\n- Glossary\n- Handle duplicate records\n- Meeting Type correction on an affirmed IEP"
+index_text += "\n\nResources\n- Glossary\n- Procedures"
 
 l = Label(f_index, text=index_text, font=("Calibri", 12), justify="left")
 l.grid(row=1, column=0)
