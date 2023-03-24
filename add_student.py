@@ -88,7 +88,8 @@ def add_student(req_type, bg_color):
         "\nPsych access granted -",
         "IEP Team added -",
 
-        "\nLEA Start Date: ",
+        "\nINFO FROM SIS",
+        "LEA Start Date: ",
         "Grade: ",
         "Middle Name: ",
         "School of Residence: ",
