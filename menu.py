@@ -1,33 +1,33 @@
 # FILE menu.py
 """
-PROGRAM TITLE: MessageBuilderGUI
+PROGRAM TITLE: SEISMessageBuilder
 ALTERNATE TITLES:
-- SEISMessageBuilder
+- MessageBuilderGUI
 - SpEd Message Builder
 AUTHOR: Mhealyssah Bustria
-DATE CREATED: unknown - on personal laptop
-DATE ACCESSED ON WORK COMPUTER: 10/28/2022
+CREATED: September 2022
 
 === FILES ===
-
 Files for setting up the GUI
 1) menu.py The main file.
 - - Creates the home page and menu options.
 - - RUN FROM THIS FILE!!!
 2) window.py The GUI window & secondary functions
 - - Creates the GUI window.
-- - Contains functions that are shared by multiple menu options.
+- - Functions that are shared by multiple menu options.
 
-Files for the primary functions and own functions of each menu option
-3) add.py For add requests
-4) status.py For status change requests.
-5) record.py For record change requests.
+Files for menu items
+3) record.py For record change requests.
+4) add.py For add requests
+5) status.py For status change requests.
 6) exit_student.py For exit requests.
-7) follow_up.py For unaffirmed/unsigned IEPs/Amendments
+7) follow_up.py For unaffirmed/unsigned IEPs/Amendments & SpEd Type
 
-Files for references
+Files for resources
 8) glossary.py An interactive glossary
-9) duplicate.py Handling duplicate records
+9) signature.py Expected signature statements
+10) duplicate.py Handling duplicate records
+11) meeting_type.py Handling Meeting Type Corrections
 """
 
 import window as w # Tkinter window
@@ -222,8 +222,8 @@ resource_menu = w.Menu(main_menu)
 main_menu.add_cascade(label="Resources", menu=resource_menu)
 resource_menu.add_command(label="Glossary",
                         command=lambda: click_glossary(w.yellow))
-resource_menu.add_command(label="Signature Statements",
-                        command=lambda: click_signature_statements(w.yellow))
+#resource_menu.add_command(label="Signature Statements",
+                        #command=lambda: click_signature_statements(w.yellow))
 resource_menu.add_command(label="Merge duplicates",
                         command=lambda: click_duplicates(w.yellow))
 resource_menu.add_command(label="Meeting Type Correction",
