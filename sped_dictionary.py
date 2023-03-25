@@ -124,6 +124,10 @@ selpa_def = "SpEd Local Planning Area"
 selpa_def += "\n- EUSD is in the North Inland SELPA"
 selpa_def += "\n- Heritage K-8 Charter is in the North Inland SELPA"
 
+trello_def = "Trello: SEIS Request Processing"
+trello_def += "\n- Details for how to process various types of requests."
+trello_def += "\nhttps://trello.com/invite/b/UKQrSPXE/ATTI8a0ee053fe81bfb539c2a289e89d6dc28533445B/seis-request-processing"
+
 uls_def = "Unique Learning Systems"
 uls_def += "\n- A standard-aligned curriculum, differentiated materials across all content areas"
 

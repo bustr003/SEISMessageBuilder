@@ -41,6 +41,7 @@ terms = {
     "SELPA" : d.selpa_def,
     "SOAR" : "An elective offered to middle schoolers.\n- Set Goals\n- Organize\n- Ask Questions\n- Record Progress",
     "SPEECH ONLY" : "Only has Language and Speech services\nPreschoolers are not in PowerSchool.",
+    "TRELLO" : d.trello_def,
     "ULS" : d.uls_def
 }
 
