@@ -87,7 +87,7 @@ def status_change(req_type, bg_color):
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
             
-            "\nDate enrolled: ",
+            #"\nDate enrolled: ",
             "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
