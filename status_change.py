@@ -88,7 +88,7 @@ def status_change(req_type, bg_color):
             "% IN regular class: ",
             
             #"\nDate enrolled: ",
-            "Parent consent date for initial eval: ",
+            "\nParent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
             "Status changed from Pending to Eligible. -"
