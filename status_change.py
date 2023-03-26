@@ -105,7 +105,7 @@ def status_change(req_type, bg_color):
     elif req_type == "Status DNR Assessment Plan Declined":
         actions = [
             "Request completed.",
-            "\nParent signed \"I do not consent to the the proposed assessment\" on ",
+            "\nParent signed \"I do not consent to the proposed assessment\" on ",
             
             "\nSSID: ",
             "CALPADS \"Pending\" Transaction: ",
