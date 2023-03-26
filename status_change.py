@@ -79,7 +79,7 @@ def status_change(req_type, bg_color):
     w.input_request_details(field_list, role_label, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
-    if req_type == "Status: Make Eligible":
+    if req_type == "Status 100 Make Eligible":
         actions = [
             "Request completed.",
             "Parent signed \"I agree\" on ",
@@ -93,16 +93,16 @@ def status_change(req_type, bg_color):
             "Plan Type: ",
             "Status changed from Pending to Eligible. -"
         ]
-    elif req_type == "Status: Make DNQ":
+    elif req_type == "Status 900 Make DNQ":
         actions = [
             "Request completed.",
             "Parent signed \"not eligible\" on ",
             "Date of parent consent for eval: ",
             "Plan Type: 900 -",
-            "Pre-K: Notified the Intake Specialist -",
+            "PS Non-ADA in SIS: Notified the Intake Specialist -",
             "Status changed from Pending to Ineligible. -"
         ]
-    elif req_type == "Status: Assessment Plan Declined":
+    elif req_type == "Status DNR Assessment Plan Declined":
         actions = [
             "Request completed.",
             "\nParent signed \"I do not consent to the the proposed assessment\" on ",
@@ -116,17 +116,17 @@ def status_change(req_type, bg_color):
             "Plan Type: blank -",
             
             "\nDo Not Report: DNR -",
-            "Pre-K: Notified the Intake Specialist -",
+            "PS Non-ADA in SIS: Notified the Intake Specialist -",
             
             "\nStatus changed from Pending to Not Providing Services. -"
         ]
-    elif req_type == "Status: Eligible but NotProvSvcs":
+    elif req_type == "Status 800 Eligible but NotProvSvcs":
         actions = [
             "Request completed.",
             "Parent signed \"I decline the offer\" on ",
             "Parent consent date for initial eval: ",
             "Plan Type: 800 -",
-            "Pre-K: Notified the Intake Specialist -",
+            "PS Non-ADA in SIS: Notified the Intake Specialist -",
             "Status changed from Pending to Not Providing Services. -"
         ]
 
