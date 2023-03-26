@@ -89,7 +89,7 @@ def add_student(req_type, bg_color):
         "IEP Team added -",
 
         "\nINFO FROM SIS",
-        #"LEA Start Date: ",
+        "LEA Start Date: ",
         "Grade: ",
         "Middle Name: ",
         "School of Residence: ",
