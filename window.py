@@ -44,9 +44,9 @@ last_updated = "Last updated March 2023"
 index_text = "\nWelcome to the Special Education Message Builder!"
 index_text += "\n" + last_updated
 
-index_text += "\n\nRequest\n- Note to describe SEIS request & actions taken."
-index_text += "\n\nFollow Up\n- Message to follow up with providers\n- Note to describe SpEd Type update"
-index_text += "\n\nResources\n- Glossary\n- Miscellaneous procedures"
+index_text += "\n\nRequest\n- Admin note for SEIS requests."
+index_text += "\n\nFollow Up\n- Message to follow up with providers"
+index_text += "\n\nResources\n- Glossary\n- Procedures"
 
 l = Label(f_index, text=index_text, font=("Calibri", 12), justify="left")
 l.grid(row=1, column=0)
@@ -141,7 +141,7 @@ wrap_units = 100 # screen units
 def configure_entries(entry_list, width):
     for entry in entry_list:
         long_entries = [
-            "SEIS_ID MeetingDate LName, FName",
+            "SEIS_ID Expire_Date Last_Name, First_Name",
             "<Names of providers>"
         ]
 

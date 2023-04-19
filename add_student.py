@@ -97,7 +97,7 @@ def add_student(req_type, bg_color):
 
         "\nRE-ACTIVATED SEIS RECORD",
         "Changed Plan Type to 300 - Pending Initial Evaluation. -",
-        "Re-activated the SEIS record. -",
+        "Re-activated the SEIS record.",
         "Status changed to Pending.",
         "Informed the requester of fields to update and how to view student history."
     ]

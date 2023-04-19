@@ -79,7 +79,7 @@ def status_change(req_type, bg_color):
     w.input_request_details(field_list, role_label, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
-    if req_type == "Status 100 Make Eligible":
+    if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
             "Parent signed \"I agree\" on ",
@@ -87,25 +87,25 @@ def status_change(req_type, bg_color):
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
             
-            #"\nDate enrolled: ",
-            "\nParent consent date for initial eval: ",
+            "\nDate enrolled: ",
+            "Parent consent date for initial eval: ",
             "Meeting Type: ",
             "Plan Type: ",
             "Status changed from Pending to Eligible. -"
         ]
-    elif req_type == "Status 900 Make DNQ":
+    elif req_type == "Status: Make DNQ":
         actions = [
             "Request completed.",
             "Parent signed \"not eligible\" on ",
             "Date of parent consent for eval: ",
             "Plan Type: 900 -",
-            "PS Non-ADA in SIS: Notified the Intake Specialist -",
+            "Pre-K: Notified the Intake Specialist -",
             "Status changed from Pending to Ineligible. -"
         ]
-    elif req_type == "Status DNR Assessment Plan Declined":
+    elif req_type == "Status: Assessment Plan Declined":
         actions = [
             "Request completed.",
-            "\nParent signed \"I do not consent to the proposed assessment\" on ",
+            "\nParent signed \"I do not consent to the the proposed assessment\" on ",
             
             "\nSSID: ",
             "CALPADS \"Pending\" Transaction: ",
@@ -116,17 +116,17 @@ def status_change(req_type, bg_color):
             "Plan Type: blank -",
             
             "\nDo Not Report: DNR -",
-            "PS Non-ADA in SIS: Notified the Intake Specialist -",
+            "Pre-K: Notified the Intake Specialist -",
             
             "\nStatus changed from Pending to Not Providing Services. -"
         ]
-    elif req_type == "Status 800 Eligible but NotProvSvcs":
+    elif req_type == "Status: Eligible but NotProvSvcs":
         actions = [
             "Request completed.",
             "Parent signed \"I decline the offer\" on ",
             "Parent consent date for initial eval: ",
             "Plan Type: 800 -",
-            "PS Non-ADA in SIS: Notified the Intake Specialist -",
+            "Pre-K: Notified the Intake Specialist -",
             "Status changed from Pending to Not Providing Services. -"
         ]
 
