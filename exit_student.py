@@ -83,6 +83,7 @@ def exit_student(req_type, bg_color):
     if req_type == "Exit 70\nNo longer eligible":
         actions = [
             "Request completed.",
+            "Information/Eligibility page says \"no longer eligible\" -",
             "Parent signed \"no longer eligible\" on "
         ]
     

@@ -1,33 +1,6 @@
 # FILE menu.py
 """
-PROGRAM TITLE: MessageBuilderGUI
-ALTERNATE TITLES:
-- SEISMessageBuilder
-- SpEd Message Builder
-AUTHOR: Mhealyssah Bustria
-DATE CREATED: unknown - on personal laptop
-DATE ACCESSED ON WORK COMPUTER: 10/28/2022
-
-=== FILES ===
-
-Files for setting up the GUI
-1) menu.py The main file.
-- - Creates the home page and menu options.
-- - RUN FROM THIS FILE!!!
-2) window.py The GUI window & secondary functions
-- - Creates the GUI window.
-- - Contains functions that are shared by multiple menu options.
-
-Files for the primary functions and own functions of each menu option
-3) add.py For add requests
-4) status.py For status change requests.
-5) record.py For record change requests.
-6) exit_student.py For exit requests.
-7) follow_up.py For unaffirmed/unsigned IEPs/Amendments
-
-Files for references
-8) glossary.py An interactive glossary
-9) duplicates.py Handling duplicate records
+!!! RUN FROM THIS FILE !!!
 """
 
 import window as w # Tkinter window
