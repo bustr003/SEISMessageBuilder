@@ -82,6 +82,7 @@ def status_change(req_type, bg_color):
     if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
+            "Additional purpose of meeting: none -",
             "Parent signed \"I agree\" on ",
 
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
@@ -89,7 +90,6 @@ def status_change(req_type, bg_color):
             
             "\nDate enrolled: ",
             "Parent consent date for initial eval: ",
-            "Additional purpose of meeting: none -",
             "Meeting Type: ",
             "Plan Type: ",
             "Status changed from Pending to Eligible. -"
