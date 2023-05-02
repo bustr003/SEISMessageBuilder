@@ -79,14 +79,37 @@ def status_change(req_type, bg_color):
     w.input_request_details(field_list, role_label, role_options, input_frame, bg_color)
 
     # LIST OF COMMON ACTIONS FOR THIS REQUEST TYPE
+
+    """
+    PK Program Settings as of 2023/02/08
+    The "location" field indicates whether the services are provided in the student's primary setting
+    The "10hrs..." field indicates the amount of time students are in their primary setting. 
+    - Pre-K PrgSet/Loc/Hrs
+    - "Reg" = Regular Early Childhood Program
+    - Location: Different/Same
+    - 10 Hrs or greater in Reg: Y/
+
+    Speech-Only Walk-in Regional
+    (not attending PK)
+    --> Reg/Diff/Y
+
+    """
+
     if req_type == "Status: Make Eligible":
         actions = [
             "Request completed.",
-            "Additional purpose of meeting: none -",
             "Parent signed \"I agree\" on ",
 
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
+
+            "\nPre-K PrgSet/Loc/Hrs: ",
+            "- SO Regional: Reg/Diff/Y",
+            "- SO CommunityPK/SPS, svc provided at site: Reg/Same/Y",
+            "- SO CommunityPK/SPS, served as walk-in: Reg/Diff/Y",
+            "- SAI Inclusion: Reg/Same/Y",
+            "- SAI SC, student does NOT attend separate PK: RC/Same/Y",
+            "- SAI SC, student DOES attend separate PK for > SpEd offered PK: RC/Same/Y",
             
             "\nDate enrolled: ",
             "Parent consent date for initial eval: ",

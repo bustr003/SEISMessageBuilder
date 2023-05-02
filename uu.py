@@ -14,7 +14,8 @@ def print_dict(dict):
 # Determine what type of uu it is
 print("STATUS TYPE")
 status_dict = [("1", "Unaffirmed"),
-             ("2", "Unsigned")]
+             ("2", "Unsigned"),
+             ("3", "Unopened")]
 print_dict(status_dict)
 status_type = input("Enter a number: ")
 
@@ -23,7 +24,8 @@ status_type = key_to_value(status_type, status_dict)
 # Determine which type of meeting it is
 print("\nMEETING TYPE")
 meet_dict = [("1", "IEP"),
-             ("2", "Amendment")]
+             ("2", "Amendment"),
+             ("3", "Howler")]
 print_dict(meet_dict)
 meet_type = input("Enter a number: ")
 
@@ -59,7 +61,12 @@ for i in range(1, len(data_list)-1):
     print(f"SUBJECT: {subject}")
     print(f"\nDear {cm_split[0]},\n\nYou are receiving this email because there is an {status_type} {meet_type} for a student on your caseload:")
     print(f"\n{F_name} {L_name}")
-    print(f"SEIS ID: {seis_id}")
+
+    if meet_type == "Howler":
+        print(f"HOGWARTS ID: {seis_id}")
+    else:
+        print(f"SEIS ID: {seis_id}")
+
     print(f"{meet_type} Date: {date}")
 
     action = status_type[2:(len(status_type))]
@@ -68,7 +75,11 @@ for i in range(1, len(data_list)-1):
     if i%10 == 0:
         print(f"\n!*!*!*!*!*!*!*!*!*!*!\n{i} out of {len(data_list)-2} emails have been drafted. Load more emails?")
         more = input("Enter y or n: ")
+        print("!*!*!*!*!*!*!*!*!*!*!\n")
+
         if more != "y":
             break
+
+print(f"\n!*!*!*!*!*!*!*!*!*!*!\nDrafted {len(data_list)-2} emails. Goodbye.\n!*!*!*!*!*!*!*!*!*!*!")
 
 #EOF: uu.py
