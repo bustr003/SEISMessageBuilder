@@ -57,16 +57,16 @@ for i in range(1, len(data_list)-1):
     print(f"\n{i}==========================")
     print(f"TO: {cm}")
     print(f"SUBJECT: {subject}")
-    print(f"\nDear {cm_split[0]},\nYou are receiving this email because there is an {status_type} {meet_type} for a student on your caseload.")
-
-    print(f"\nStudent Name: {F_name} {L_name}")
+    print(f"\nDear {cm_split[0]},\n\nYou are receiving this email because there is an {status_type} {meet_type} for a student on your caseload:")
+    print(f"\n{F_name} {L_name}")
     print(f"SEIS ID: {seis_id}")
+    print(f"{meet_type} Date: {date}")
 
     action = status_type[2:(len(status_type))]
     print(f"\nCan you please check in to let me know if this {meet_type} is ready to be {action}?\nFeel free to contact me if you have any questions or concerns.")
 
-    if (i>0) and ((i+1)%10 == 0):
-        print(f"\n!*!*!*!*!*!*!*!*!*!*!\n{i+1} out of {len(data_list)-2} emails have been drafted. Load more emails?")
+    if i%10 == 0:
+        print(f"\n!*!*!*!*!*!*!*!*!*!*!\n{i} out of {len(data_list)-2} emails have been drafted. Load more emails?")
         more = input("Enter y or n: ")
         if more != "y":
             break
