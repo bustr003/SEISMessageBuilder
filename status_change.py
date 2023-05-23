@@ -104,12 +104,12 @@ def status_change(req_type, bg_color):
             "% IN regular class: ",
 
             "\nPre-K PrgSet/Loc/Hrs: ",
-            "- SO Regional: Reg/Diff/Y",
-            "- SO CommunityPK/SPS, svc provided at site: Reg/Same/Y",
-            "- SO CommunityPK/SPS, served as walk-in: Reg/Diff/Y",
-            "- SAI Inclusion: Reg/Same/Y",
-            "- SAI SC, student does NOT attend separate PK: RC/Same/Y",
-            "- SAI SC, student DOES attend separate PK for > SpEd offered PK: RC/Same/Y",
+            "B- SO Regional: Reg/Diff/Y",
+            "C- SO CommunityPK/SPS, svc provided at site: Reg/Same/Y",
+            "C- SO CommunityPK/SPS, served as walk-in: Reg/Diff/Y",
+            "D- SAI Inclusion: Reg/Same/Y",
+            "E- SAI SC, student does NOT attend separate PK: SC/Same/Y",
+            "F- SAI SC, student DOES attend separate PK for > SpEd offered PK: Reg/Diff/Y",
             
             "\nDate enrolled: ",
             "Parent consent date for initial eval: ",
@@ -129,7 +129,7 @@ def status_change(req_type, bg_color):
     elif req_type == "Status: Assessment Plan Declined":
         actions = [
             "Request completed.",
-            "\nParent signed \"I do not consent to the the proposed assessment\" on ",
+            "\nParent signed \"I do not consent to the proposed assessment\" on ",
             
             "\nSSID: ",
             "CALPADS \"Pending\" Transaction: ",

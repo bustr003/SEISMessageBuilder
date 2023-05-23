@@ -56,10 +56,17 @@ for i in range(1, len(data_list)-1):
 
     cm_split = cm.split(" ")
 
+    # NEW EMAIL INFO & GREETING
     print(f"\n{i}==========================")
     print(f"TO: {cm}")
     print(f"SUBJECT: {subject}")
-    print(f"\nDear {cm_split[0]},\n\nYou are receiving this email because there is an {status_type} {meet_type} for a student on your caseload:")
+    print(f"\nDear {cm_split[0]},")
+    
+    # INTRO SENTENCE
+    #print(f"\nYou are receiving this email because there is an {status_type} {meet_type} for a student on your caseload:") # 1
+    print(f"\nI am emailing to check in on an {status_type} {meet_type} for a student on your caseload:") # 2
+
+    # STUDENT INFO
     print(f"\n{F_name} {L_name}")
 
     if meet_type == "Howler":
@@ -69,8 +76,10 @@ for i in range(1, len(data_list)-1):
 
     print(f"{meet_type} Date: {date}")
 
+    # CLOSING SENTENCE
     action = status_type[2:(len(status_type))]
-    print(f"\nCan you please check in to let me know if this {meet_type} is ready to be {action}?\nFeel free to contact me if you have any questions or concerns.")
+    #print(f"\nCan you please check in to let me know if this {meet_type} is ready to be {action}?\n\nFeel free to contact me if you have any questions or concerns.") # 1
+    print(f"\nCan you please let me know if the {meet_type} is ready to be {action}?\n\nFeel free to contact me if you have any questions or concerns.") # 2
 
     if i%10 == 0:
         print(f"\n!*!*!*!*!*!*!*!*!*!*!\n{i} out of {len(data_list)-2} emails have been drafted. Load more emails?")
