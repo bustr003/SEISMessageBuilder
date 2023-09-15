@@ -83,14 +83,8 @@ def exit_student(req_type, bg_color):
     if req_type == "Exit 70\nNo longer eligible":
         actions = [
             "Request completed.",
-            "Information/Eligibility page says \"no longer eligible\" -",
+            "Information/Eligibility page says \"Exiting from Special Education\" -",
             "Parent signed \"no longer eligible\" on "
-        ]
-    
-    elif req_type == "Exit 74\nDrop Out/Not known to be continuing":
-        actions = [
-            "Request completed.",
-            ""
         ]
 
     elif req_type == "Exit 76\nTransfer, known to be continuing":
@@ -131,6 +125,12 @@ def exit_student(req_type, bg_color):
         actions = [
             "Request completed.",
             ""
+        ]
+
+    elif req_type == "Exit 87\nTransferred Out-of-State/Country":
+        actions = [
+            "Request completed.",
+            "EUSD Exit Date "
         ]
     
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX

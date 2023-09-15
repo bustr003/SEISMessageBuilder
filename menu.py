@@ -8,7 +8,7 @@ import window as w # Tkinter window
 import record_change # Request Type: Record Change
 import add_student # Request Type: Add Student
 import status_change # Request Type: Eligibility Change
-import exit_student # Request Type: Exit
+import exit_student # Request Type: Exit    iPnt27!!jdw!
 
 import follow_up # Emails
 
@@ -130,9 +130,6 @@ type_menu.add_separator()
 type_menu.add_command(label="Exit 70",
                       command=lambda:click_exit_student("Exit 70\nNo longer eligible", w.purple))
 
-type_menu.add_command(label="Exit 74",
-                      command=lambda:click_exit_student("Exit 74\nDrop Out/Not known to be continuing", w.purple))
-
 type_menu.add_command(label="Exit 76",
                       command=lambda:click_exit_student("Exit 76\nTransfer, known to be continuing", w.purple))
 
@@ -146,7 +143,10 @@ type_menu.add_command(label="Exit 84",
                       command=lambda:click_exit_student("Exit 84\nPart C to B No parental consent", w.purple))
 
 type_menu.add_command(label="Exit 85",
-                      command=lambda:click_exit_student("Exit 85\nExited SPED Out-of-State", w.purple))           
+                      command=lambda:click_exit_student("Exit 85\nExited SPED Out-of-State", w.purple))
+
+type_menu.add_command(label="Exit 87",
+                      command=lambda:click_exit_student("Exit 87\nTransferred Out-of-State/Country", w.purple))       
 
 type_menu.add_separator()
 
