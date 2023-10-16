@@ -104,12 +104,12 @@ def status_change(req_type, bg_color):
             "% IN regular class: ",
 
             "\nPre-K PrgSet/Loc/Hrs: ",
-            "B- SO Regional: Reg/Diff/Y",
-            "C- SO CommunityPK/SPS, svc provided at site: Reg/Same/Y",
-            "C- SO CommunityPK/SPS, served as walk-in: Reg/Diff/Y",
-            "D- SAI Inclusion: Reg/Same/Y",
-            "E- SAI SC, student does NOT attend separate PK: SC/Same/Y",
-            "F- SAI SC, student DOES attend separate PK for > SpEd offered PK: Reg/Diff/Y",
+            "SO Regional: Reg/Diff/Y",
+            "SO CommunityPK, served as walk-in: Reg/Diff/Y",
+            "SO SPS/CommunityPK, svc provided at site: Reg/Same/Y\n(MAAC, Growing Minds, Headstart, ECCDC)",
+            "SAI Inclusion: Reg/Same/Y",
+            "SAI SC, student DOES attend separate PK for > SpEd offered PK: Reg/Diff/Y",
+            "SAI SC, student does NOT attend separate PK: SC/Same/Y",
             
             "\nDate enrolled: ",
             "Parent consent date for initial eval: ",
