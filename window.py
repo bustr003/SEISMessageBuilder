@@ -6,14 +6,15 @@
 - Secondary functions used by each menu option's primary function
 
 if iconbitmap error, comment out lines
-16, 35, 41-43, 261
+16, 35, 41-43,
+263 go_home_button["image"] = go_home_image # !!!!!
 """
 
 from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-#root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
+root.iconbitmap(r"images\bunny_face.ico") # Icon to display on the title bar
 
 root.title("SpEd Message Builder") # Text to display on the title bar
 
@@ -32,15 +33,15 @@ textbox_height = 18
 # Values for Clear button
 go_home_button_text = "Home"
 go_home_label_text = "Home"
-#go_home_image = PhotoImage(file = r"images\bunny_pixel_small.png")
+go_home_image = PhotoImage(file = r"images\bunny_pixel_small.png")
 
 # Index Page
 f_index = Frame(root)
 f_index.pack()
 
-#index_image = PhotoImage(file = r"images\bunny_pixel.png")
-#l = Label(f_index, image=index_image)
-#l.grid(row=0, column= 0, pady=10)
+index_image = PhotoImage(file = r"images\bunny_pixel.png")
+l = Label(f_index, image=index_image)
+l.grid(row=0, column= 0, pady=10)
 
 last_updated = "Last updated 10/16/2023"
 
@@ -260,7 +261,7 @@ When pressed, the widgets for this menu option will be destroyed.
 """
 def make_go_home_button(go_home_button, frame_list, bg_color):
     #go_home_button["text"] = go_home_button_text
-    #go_home_button["image"] = go_home_image # !!!!!
+    go_home_button["image"] = go_home_image # !!!!!
     #go_home_button["height"] = 20
     #go_home_button["width"] = 20
     go_home_button["command"] = lambda: go_home(frame_list)
