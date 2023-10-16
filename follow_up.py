@@ -171,7 +171,7 @@ def input_signature_details(fields_list, input_frame, bg_color):
     l.grid(row=r+1, column=0)
     fields_list[1].grid(row=r+2,column=0)
 
-    text = "Student Info (SEIS_ID Expire_Date Last_Name, First_Name)"
+    text = "SEIS ID Status_Date Last_Name, First_Name"
     l = w.Label(input_frame, text=text, bg=bg_color)
     l.grid(row=r+3, column=0, columnspan=2)
     fields_list[2].grid(row=r+4, column=0, columnspan=2)
@@ -211,7 +211,10 @@ def write_signature_message(field_list, note_frame, bg_color):
     line = "Hello, " + field_list[1].get().strip() + ".\n\n"
     textbox.insert("end", line)
 
-    line = "Your E-Signature package for the following student is " + field_list[0] + ".\n\n"
+    if field_list[0] == "Cancelled":
+        line = "Your E-Signature package for the following student was " + field_list[0] + " by SEIS due to signatures not being obtained within 7 days.\n\n"
+    else:
+        line = "Your E-Signature package for the following student is " + field_list[0] + ".\n\n"
 
     student_info = field_list[2].get().split() # Strip whitespaces and separate the parts of the string into a list
     student_name = ""
@@ -222,12 +225,14 @@ def write_signature_message(field_list, note_frame, bg_color):
 
     line += student_name
     line += "\nSEIS ID: " + student_info[0]
-    line += "\nE-Signature expired on: " + student_info[1]
+    line += "\nE-Signature " + field_list[0] + " " + student_info[1]
     line += "\n"
 
     if field_list[0] == "Expired":
         line += "\nFor the signatures that were already collected, you can download the PDF of those signatures and attach it."
         line += "\n\nFor any signatures that still haven't been obtained, you can generate a new E-signature package for the missing signatures. However, if you have already sent out two e-signature packages and parents are struggling to sign, please send a paper copy home to the parent for signature."
+    elif field_list[0] == "Cancelled":
+        line += "\nIf needed, you may open a new E-Signature package for the student."
 
     textbox.insert("end", line)
 # END OF FN write_signature_message
@@ -278,7 +283,7 @@ def signature(status, bg_color):
     for i in range(1,3):
         entry_list.append(field_list[i])
 
-    stu_info.insert(0, "SEIS_ID Expire_Date Last_Name, First_Name")
+    stu_info.insert(0, "SEIS_ID Status_Date Last_Name, First_Name")
     w.configure_entries(entry_list, w.entry_width_size)
 
     # USER INPUT FOR REQUEST DETAILS

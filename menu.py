@@ -173,6 +173,9 @@ follow_menu.add_command(label="Signature: Ready",
 follow_menu.add_command(label="Signature: Expired",
                         command=lambda: click_signature("Expired"))
 
+follow_menu.add_command(label="Signature: Cancelled",
+                        command=lambda: click_signature("Cancelled"))
+
 follow_menu.add_separator()
 
 # --- Meeting Alerts
