@@ -96,10 +96,12 @@ def add_student(req_type, bg_color):
         "School of Attendance: ",
 
         "\nRE-ACTIVATED SEIS RECORD",
+        "Demographics page: Removed old SpEd Type, Address, & Phone -",
+        "CALPADS (Student) page: Unpopulated outdated fields. -",
         "Changed Plan Type to 300 - Pending Initial Evaluation. -",
-        "Re-activated the SEIS record.",
-        "Status changed to Pending.",
-        "Informed the requester of fields to update and how to view student history."
+        "Changed Meeting Type to 30 -",
+        "Re-activated the SEIS record; Status changed to Pending.",
+        "Informed the requester of how to view student history. -"
     ]
 
     # BUTTON TO TAKE TEXT ENTRIES AND POPULATE THE TEXTBOX
