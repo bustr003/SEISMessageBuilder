@@ -103,13 +103,23 @@ def status_change(req_type, bg_color):
             "\nSpEd Type: TO DO - Update SpEd Type to <> as of <>",
             "% IN regular class: ",
 
-            "\nPre-K PrgSet/Loc/Hrs: ",
-            "SO Regional: Reg/Diff/Y",
-            "SO CommunityPK, served as walk-in: Reg/Diff/Y",
-            "SO SPS/CommunityPK, svc provided at site: Reg/Same/Y\n(MAAC, Growing Minds, Headstart, ECCDC)",
-            "SAI Inclusion: Reg/Same/Y",
-            "SAI SC, student DOES attend separate PK for > SpEd offered PK: Reg/Diff/Y",
-            "SAI SC, student does NOT attend separate PK: SC/Same/Y",
+            "\nPreschool Program Setting:",
+
+            "\nPrgSet/Loc/Hrs = Reg/Same/Y",
+            "- 4 year-old TK",
+            "- SAI Inclusion",
+            "- SO SPS",
+            "- SO Communinity PK, svc provided at site (MAAC, Growing Minds, Headstart, ECCDC)",
+
+            "\nPrgSet/Loc/Hrs = Reg/Diff/Y",
+            "- SO Regional, served at EUSD site as a walk-in",
+            "- SO Community PK, served at EUSD site as a walk-in",
+
+            "\nPrgSet/Loc/Hrs = SC/Diff/Y",
+            "- SAI SC, DOES attend separate PK for > SpEd offered",
+
+            "\nPrgSet/Loc/Hrs = SC/Same/Y",
+            "- SAI SC, does NOT attend separate PK",
             
             "\nDate enrolled: ",
             "Parent consent date for initial eval: ",
