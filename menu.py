@@ -127,26 +127,26 @@ type_menu.add_command(label="Status: Eligible but NotProvSvcs",
 type_menu.add_separator()
 
 # --- Request: Exit Student
-type_menu.add_command(label="Exit 70",
+type_menu.add_command(label="Exit 70 No longer eligible",
                       command=lambda:click_exit_student("Exit 70\nNo longer eligible", w.purple))
 
-type_menu.add_command(label="Exit 76",
-                      command=lambda:click_exit_student("Exit 76\nTransfer, known to be continuing", w.purple))
+type_menu.add_command(label="Exit 76 Transferred out within CA",
+                      command=lambda:click_exit_student("Exit 76\nTransferred, known to be continuing", w.purple))
 
-type_menu.add_command(label="Exit 77",
+type_menu.add_command(label="Exit 87 Transferred out of CA",
+                      command=lambda:click_exit_student("Exit 87\nTransferred Out-of-State/Country", w.purple)) 
+
+type_menu.add_command(label="Exit 77 Deceased",
                       command=lambda:click_exit_student("Exit 77\nDeceased", w.purple))
 
-type_menu.add_command(label="Exit 78",
+type_menu.add_command(label="Exit 78 Parent Withdrawal (in writing)",
                       command=lambda:click_exit_student("Exit 78\nParent Withdrawal", w.purple))
 
 type_menu.add_command(label="Exit 84",
                       command=lambda:click_exit_student("Exit 84\nPart C to B No parental consent", w.purple))
 
-type_menu.add_command(label="Exit 85",
-                      command=lambda:click_exit_student("Exit 85\nExited SPED Out-of-State", w.purple))
-
-type_menu.add_command(label="Exit 87",
-                      command=lambda:click_exit_student("Exit 87\nTransferred Out-of-State/Country", w.purple))       
+type_menu.add_command(label="Exit 85 Exited from SPED while Out-of-State",
+                      command=lambda:click_exit_student("Exit 85\nExited SPED Out-of-State", w.purple))      
 
 type_menu.add_separator()
 
