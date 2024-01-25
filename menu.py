@@ -8,7 +8,7 @@ import window as w # Tkinter window
 import record_change # Request Type: Record Change
 import add_student # Request Type: Add Student
 import status_change # Request Type: Eligibility Change
-import exit_student # Request Type: Exit    iPnt27!!jdw!
+import exit_student # Request Type: Exit
 
 import follow_up # Emails
 
@@ -131,7 +131,7 @@ type_menu.add_command(label="Exit 70 No longer eligible",
                       command=lambda:click_exit_student("Exit 70\nNo longer eligible", w.purple))
 
 type_menu.add_command(label="Exit 76 Transferred out within CA",
-                      command=lambda:click_exit_student("Exit 76\nTransferred, known to be continuing", w.purple))
+                      command=lambda:click_exit_student("Exit 76\nTransferred out within CA", w.purple))
 
 type_menu.add_command(label="Exit 87 Transferred out of CA",
                       command=lambda:click_exit_student("Exit 87\nTransferred Out-of-State/Country", w.purple)) 

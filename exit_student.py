@@ -87,7 +87,7 @@ def exit_student(req_type, bg_color):
             "Parent signed \"no longer eligible\" on "
         ]
 
-    elif req_type == "Exit 76\nTransfer, known to be continuing":
+    elif req_type == "Exit 76\nTransferred out within CA":
         actions = [
             "Request completed.",
             "EUSD Exit Date "

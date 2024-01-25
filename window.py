@@ -43,7 +43,7 @@ f_index.pack()
 #l = Label(f_index, image=index_image)
 #l.grid(row=0, column= 0, pady=10)
 
-last_updated = "Last updated 12/19/2024"
+last_updated = "Last updated 1/25/2024"
 
 index_text = "\nWelcome to the Special Education Message Builder!"
 index_text += "\n" + last_updated
